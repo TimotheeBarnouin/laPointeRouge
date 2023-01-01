@@ -1,152 +1,197 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Hôte : localhost
--- Généré le : mar. 25 oct. 2022 à 10:22
--- Version du serveur : 8.0.30-0ubuntu0.22.04.1
--- Version de PHP : 8.1.11
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Base de données : `auto-encheres`
+-- Base de données : `lapointerouge`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `annonces`
+-- Structure de la table `produit_sur_mesure`
 --
 
-CREATE TABLE `annonces` (
-  `uid_annonce` bigint UNSIGNED NOT NULL,
-  `titre_annonce` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prix_depart` float UNSIGNED NOT NULL,
-  `date_fin_enchere` bigint UNSIGNED NOT NULL,
-  `modele` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `marque` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `puissance` smallint UNSIGNED NOT NULL,
-  `annee` smallint UNSIGNED NOT NULL,
+CREATE TABLE `produit_sur_mesure` (
+  `uid_sur_mesure` bigint UNSIGNED NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dimensions` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poids` float UNSIGNED NOT NULL,
+  `temps_conception` smallint UNSIGNED NOT NULL,
   `photo` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `annonces`
+-- Déchargement des données de la table `produit_sur_mesure`
 --
 
-INSERT INTO `annonces` (`uid_annonce`, `titre_annonce`, `prix_depart`, `date_fin_enchere`, `modele`, `marque`, `puissance`, `annee`, `description`, `photo`) VALUES
-(1, 'La BM de sa mère !', 92000, 1660567921, 'M3', 'BMW', 230, 2019, 'Cette BMW M3 déchire vraiment la race de sa mère.', 'bmw.jpg'),
-(2, 'L\'Audi qui déchire sa race !', 122000, 1668579455, 'A3 RS6 Quattro Sportback', 'AUDI', 320, 2021, 'L\'AUDI de la mort qui tue. Achète mon fils !', 'audi.jpg'),
-(3, 'Ma MercoBenz Zarma !', 94000, 1667479455, 'ML 300', 'MERCEDES', 280, 2020, 'Laisse moi ZoomZoomZing, dans ta Benz Benz Benz.', 'mercedes.jpg'),
-(4, 'Bientôt ta Porsche veinard ?', 132000, 1665467922, 'TAYCAN GT3', 'PORSCHE', 230, 2022, 'La porsche de mes rêves, bordel !', 'porsche.jpg'),
-(5, 'Fait chauffer Enzo !', 154000, 1667562941, '812 GTS', 'FERRARI', 430, 2019, 'Cette Ferrari n\'est pas rouge. Sacrilège !', 'ferrari.jpg'),
-(6, 'Tu veux jouer avec la nouvelle Golf ?', 67000, 1670557921, 'Golf 8 Spider', 'VOLKSWAGEN', 190, 2019, 'Cette golf est une valeur sûre.', 'volkswagen.jpg'),
-(7, 'C\'est toi le MAC ?', 145000, 1675437122, '570 GT', 'MC LAREN', 360, 2022, 'There is No Finish Line. There are no limit !', 'mclaren.jpg'),
-(8, 'Ça balance du cheval grave !', 134000, 1670542331, 'Camaro', 'CHEVROLET', 560, 2022, 'Ça c\'est une voiture qu\'elle a des chevaux sous le capot !', 'chevrolet.jpg'),
-(9, 'Drive your Ambition with a Mitsubishi', 76000, 1660321921, 'Lancer Evolution 6', 'MITSUBISHI', 180, 2020, 'La caisse là, elle mange la route grave ! ', 'mitsubishi.jpg'),
-(10, 'Tu veux un moteur d\'avion sous le capot ?', 199000, 1677562941, 'Ghost', 'ROLLS ROYCE', 571, 2020, 'Elle pèse 2,5 tonnes la bête !', 'rollsroyce.jpg'),
-(11, 'Alpine, en un seul mot !', 119000, 1660452321, 'A110', 'ALPINE', 280, 2022, 'Cocorico, Alpine est la seule marque française qui rivalise avec les voitures étrangères.', 'alpine.jpg'),
-(12, 'We are Not Super Cars. We are Lamborghini !', 165000, 1669542331, 'Aventador LP 780-4 Ultimae Roadster', 'LAMBORGHINI', 480, 2022, 'Achète ça et tu perds tes deux bras...', 'lamborghini.jpg'),
-(13, 'Tu veux frimer ?', 99000, 1680220800, 'RS8 Coupé Sport', 'AUDI', 280, 2021, 'Une AUDI sinon rien...', 'audi2.jpg'),
-(14, 'Allie sensations de conduite et confort.', 95000, 1685491200, 'Corvette Grand Sport', 'CHEVROLET', 650, 2017, 'Ce nouveau modèle Grand Sport, c\'est bien la version \"puristes\".', 'chevrolet2.jpg'),
-(15, 'Un SUV 100% électrique.', 176000, 1688083200, 'Purosangue', 'FERRARI', 454, 2022, 'Le premier SUV Ferrari.', 'ferrari2.jpg');
+INSERT INTO `produit_sur_mesure` (`uid_sur_mesure`, `nom`, `description`, `dimensions`, `metal`, `poids`, `temps_conception`, `photo`) VALUES
+(1, "Justice du chevalier", "Une lame finement ouvragée pour créer une épée digne d'un chevalier en mission.", '0.980 x 17 x 5', 'Argent, or', 1.3, 84, 'justice_du_chevalier.jpg'),
+(2, "La claymore au Lys", "Epée proposant d'assembler la popularité de la claymore avec la royauté de la fleur de lys.", '1.3 x 21 x 6', 'Acier, or, ébène', 1.6, 79, 'la_claymore_au_lys.jpg'),
+(3, "Justice du chevalier", "Une lame finement ouvragée pour créer une épée digne d'un chevalier en mission.", '0.980 x 17 x 5', 'Argent, or', 1.3, 84, 'justice_du_chevalier.jpg'),
+(4, "Le poing de Sauron", "Une réplique de la mace utilisée par Sauron dans l'univers cinématographique.", '0.800 x 22 x 22', 'Acier', 2.4, 121, 'le_poing_de_sauron.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `encheres`
+-- Structure de la table `commande_sur_mesure`
 --
 
-CREATE TABLE `encheres` (
-  `uid_enchere` bigint UNSIGNED NOT NULL,
-  `uid_utilisateur` bigint UNSIGNED NOT NULL,
-  `uid_annonce` bigint UNSIGNED NOT NULL,
-  `date` bigint UNSIGNED NOT NULL,
-  `montant` float UNSIGNED NOT NULL
+CREATE TABLE `commande_sur_mesure` (
+  `uid_commande` bigint UNSIGNED NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mail` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel` int NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateurs`
+-- Structure de la table `produit_sur_mesure`
 --
 
-CREATE TABLE `utilisateurs` (
-  `uid_utilisateur` bigint UNSIGNED NOT NULL,
+CREATE TABLE `produit_standard` (
+  `uid_standard` bigint UNSIGNED NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dimensions` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `metal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poids` float UNSIGNED NOT NULL,
+  `temps_conception` smallint UNSIGNED NOT NULL,
+  `prix` float UNSIGNED NOT NULL,
+  `photo` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `produit_standard`
+--
+
+INSERT INTO `produit_standard` (`uid_standard`, `nom`, `description`, `dimensions`, `metal`, `poids`, `temps_conception`, `prix`, `photo`) VALUES
+(1, 'La poigne du Rohan', 'Adoptez cette réplique de lame des cavaliers du Rohan !', '85 x 20 x 4', 'Acier', 1.1, 25, 250, 'la_poigne_du_rohan.jpg'),
+(2, 'La dague', 'Essayez cette grande dague.', '35 x 8 x 4', 'Acier', 0.420, 10, 120, 'la_dague.jpg'),
+(3, "L'épée longue", "Une réplique d'épée longue, populaire et courante.", '95 x 20 x 4', 'Acier', 0.945, 23, 250, 'l_epee_longue.jpg'),
+(4, 'Dague ouvragée', 'Une version fantasy de la dague avec une poignée en plaqué or.', '35 x 12 x 3', 'Acier, or (placage)', 0.365, 30, 330, 'dague_ouvragee.jpg'),
+(5, 'Epée ouvragée', "Une version fantasy d'une épée courte.", '50 x 20 x 4', 'Acier, zinc', 0.719, 36, 450, 'epee_ouvragee.jpg'),
+(6, 'Le Wakizashi', "Un wakizashi, une épée japonaise à utiliser en seconde main.", '65 x 9 x 4', 'Acier', 0.680, 19, 240, 'wakizashi.jpg'),
+(7, 'La Hache de Skyrim', "Une réplique d'une hache du célèbre jeu Skyrim ", '48 x 23 x 6', 'Acier, chêne', 1.1, 21, 190, 'la_hache_de_skyrim.jpg'),
+(8, 'La Nordique', "Une hache d'inspiration nordique, viking.", '42 x 18 x 4', 'Acier, chêne', 0.480, 17, 150, 'la_nordique.jpg'),
+(9, 'Hache unie', "Une hache d'un seul bloc de métal, poignée en lamelles de cuir.", '39 x 19 x 4', 'Acier, cuir', 0.480, 21, 200, 'hache_unie.jpg'),
+(10, 'La Nordique', "Une hache d'inspiration nordique, viking.", '42 x 18 x 4', 'Acier, chêne', 0.480, 17, 150, 'la_nordique.jpg'),
+(11, 'Hachette', "Une hachette avec manche et métal peints.", '35 x 17 x 4', 'Acier, chêne', 0.390, 13, 130, 'hachette.jpg')
+(12, 'Hache fantasy', "Une hache d'inspiration fantasy avec un crâne, hallebarde courte.", '64 x 24 x 6', 'Acier, chêne', 0.640, 29, 300, 'hache_fantasy.jpg'),
+(13, 'Hache ouvragée', "Une hache longue ouvragée.", '71 x 20 x 7', 'Acier, chêne', 0.940, 22, 280, 'hache_ouvragee.jpg'),
+(14, 'Lance commune', "Une hache commune, simple et efficace.", '1.3 x 10 x 4', 'Acier, chêne', 1.09, 11, 150, 'lance_commune.jpg'),
+(15, 'La Nordique', "Une lance de conception moderne, pour le chasseur d'aujourd'hui.", '1.2 x 8 x 4', 'Acier', 0.750, 26, 280, 'lance_moderne.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `client`
+--
+
+CREATE TABLE `client` (
+  `uid_client` bigint UNSIGNED NOT NULL,
   `nom` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel` int NOT NULL,
   `email` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Index pour les tables déchargées
+-- Déchargement des données de la table `client`
 --
 
---
--- Index pour la table `annonces`
---
-ALTER TABLE `annonces`
-  ADD PRIMARY KEY (`uid_annonce`);
+INSERT INTO `client` (`uid_client`, `nom`, `prenom`, `email`, `password`) VALUES
+(), ;
+
+-- --------------------------------------------------------
 
 --
--- Index pour la table `encheres`
+-- Structure de la table `panier`
 --
-ALTER TABLE `encheres`
-  ADD PRIMARY KEY (`uid_enchere`),
-  ADD KEY `fk_enchere_utilisateur` (`uid_utilisateur`),
-  ADD KEY `fk_enchere_annonce` (`uid_annonce`);
+
+CREATE TABLE `panier` (
+  `uid_panier` bigint UNSIGNED NOT NULL,
+  `uid_client` bigint UNSIGNED NOT NULL,
+  `uid_standard` bigint UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Index pour la table `utilisateurs`
+-- Index pour la table `produit_standard`
 --
-ALTER TABLE `utilisateurs`
-  ADD PRIMARY KEY (`uid_utilisateur`);
+ALTER TABLE `produit_standard`
+  ADD PRIMARY KEY (`uid_standard`);
 
+--
+-- Index pour la table `produit_standard`
+--
+ALTER TABLE `produit_sur_mesure`
+  ADD PRIMARY KEY (`uid_sur_mesure`);
+
+-- Index pour la table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`uid_client`);
+
+-- Index pour la table `commande_sur_mesure`
+--
+ALTER TABLE `commande_sur_mesure`
+  ADD PRIMARY KEY (`uid_commande`);
+
+--
+-- Index pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`uid_panier`);
+  
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `annonces`
+-- AUTO_INCREMENT pour la table `produi_standard`
 --
-ALTER TABLE `annonces`
-  MODIFY `uid_annonce` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+ALTER TABLE `produit_standard`
+  MODIFY `uid_standard` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `produit_sur_mesure`
+--
+ALTER TABLE `produit_sur_mesure`
+  MODIFY `uid_sur_mesure` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `encheres`
+-- AUTO_INCREMENT pour la table `commande_sur_mesure`
 --
-ALTER TABLE `encheres`
-  MODIFY `uid_enchere` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
+ALTER TABLE `commande_sur_mesure`
+  MODIFY `uid_commande` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
-ALTER TABLE `utilisateurs`
-  MODIFY `uid_utilisateur` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `client`
+  MODIFY `uid_client` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Contraintes pour les tables déchargées
+-- AUTO_INCREMENT pour la table `panier`
 --
+ALTER TABLE `panier`
+  MODIFY `uid_panier` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `panier`
+  ADD KEY `fk_panier_client` (`uid_client`),
+  ADD KEY `fk_panier_produit` (`uid_standard`);
 
 --
--- Contraintes pour la table `encheres`
+-- Contraintes pour la table `panier`
 --
-ALTER TABLE `encheres`
-  ADD CONSTRAINT `fk_enchere_annonce` FOREIGN KEY (`uid_annonce`) REFERENCES `annonces` (`uid_annonce`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_enchere_utilisateur` FOREIGN KEY (`uid_utilisateur`) REFERENCES `utilisateurs` (`uid_utilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `panier`
+  ADD CONSTRAINT `fk_panier_produit` FOREIGN KEY (`uid_standard`) REFERENCES `produit_standard` (`uid_standard`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_panier_client` FOREIGN KEY (`uid_client`) REFERENCES `client` (`uid_client`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
