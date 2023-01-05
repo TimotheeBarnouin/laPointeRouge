@@ -23,9 +23,9 @@ class Produits extends Controller
         // Requete de type SELECT * sur la table produit_standard.
         $sql = 'SELECT * FROM `produit_standard` ORDER BY RAND() LIMIT 5';
         // Exécution de la requête
-        $standard = PdoDb::getInstance()->requete($sql);
+        $standardRand = PdoDb::getInstance()->requete($sql);
         // Transmission des annonce à la vue (Layout + template).
-        return $this->render('layouts.default', 'templates.accueil', $standard);
+        return $this->render('layouts.default', 'templates.accueil', $standardRand);
     }
 
     /*
@@ -36,9 +36,9 @@ class Produits extends Controller
         // Requete de type SELECT * sur la table produit_sur_mesure.
         $sql = 'SELECT * FROM `produit_sur_mesure` ORDER BY RAND() LIMIT 5';
         // Exécution de la requête
-        $mesure = PdoDb::getInstance()->requete($sql);
+        $mesureRand = PdoDb::getInstance()->requete($sql);
         // Transmission des annonce à la vue (Layout + template).
-        return $this->render('layouts.default', 'templates.accueil', $mesure);
+        return $this->render('layouts.default', 'templates.accueil', $mesureRand);
     }
 
     /*

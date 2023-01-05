@@ -5,6 +5,7 @@
  * qui définissent la logique de l'application puis génèrerent les affichages.
  */
 
+use LISENDER\LaPointeRouge\Controllers\Produits;
 use LISENDER\LaPointeRouge\Controllers\Encheres;
 use LISENDER\LaPointeRouge\Models\UtilisateursModel;
 use LISENDER\LaPointeRouge\Controllers\Annonces;
@@ -83,6 +84,30 @@ if (count($_GP) > 0) {
             $annonces = new Annonces();
             echo $annonces->enchere($annonceId);
         }
+        exit();
+    }
+
+    if (isset($_GP['standardRand'])) {
+        $standardRand = new Produits;
+        echo $standardRand->list_standard();
+        exit();
+    }
+
+    if (isset($_GP['mesureRand'])) {
+        $mesureRand = new Produits;
+        echo $mesureRand->list_sur_mesure();
+        exit();
+    }
+
+    if (isset($_GP['standard'])) {
+        $standard = new Produits;
+        echo $standard->list_standard_complete();
+        exit();
+    }
+
+    if (isset($_GP['mesure'])) {
+        $mesure = new Produits;
+        echo $mesure->list_sur_mesure_complete();
         exit();
     }
 }

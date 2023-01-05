@@ -26,7 +26,10 @@ switch ($uriSegments[1]) {
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2<?= $activeHome ?>">Accueil</a></li>
-
+                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Notre artisan</a></li>
+                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Nos réalisations</a></li>
+                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Vos projets personnalisés</a></li>
+                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Votre projet</a></li>
                 <?php
                 if (isset($_SESSION['user'])) {
                 ?>
@@ -35,13 +38,6 @@ switch ($uriSegments[1]) {
                 }
                 ?>
             </ul>
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <div class="input-group">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Rechercher..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="button" id="search-btn">Search</button>
-                </div>
-            </form>
 
             <div class="text-end">
                 <?php

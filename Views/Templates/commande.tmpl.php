@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6 mt-3 mb-3 mx-auto">
-            <h1 class="text-white">Veuillez vous enregistrer</h1>
+            <h1 class="text-white">Contactez-bous pour proposer votre projet</h1>
         </div>
     </div>
     <div class="row">
