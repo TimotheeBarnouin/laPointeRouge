@@ -1,13 +1,15 @@
 <?php
 
-namespace SYRADEV\AutoEncheres\Utils\Php;
+namespace LISENDER\LaPointeRouge\Utils\Php;
 
 use NumberFormatter;
 
-final class Outils {
+final class Outils
+{
 
     /* Nettoie les données postées avant stockage */
-    static public function cleanUpValues($allValues) {
+    static public function cleanUpValues($allValues)
+    {
         foreach ($allValues as $key => $value) {
             if (is_array($value)) {
                 $allValues[$key] = self::cleanUpValues($value);
@@ -21,10 +23,10 @@ final class Outils {
     /* Fonction qui s'assure qu'un appel de page PHP est bien effectué en AJAX */
     static public function ajaxCheck(): bool
     {
-        $check=false;
+        $check = false;
         $requestedWith = $_SERVER['HTTP_X_REQUESTED_WITH'];
 
-        if(!empty($requestedWith) && strtolower($requestedWith) == 'xmlhttprequest') {
+        if (!empty($requestedWith) && strtolower($requestedWith) == 'xmlhttprequest') {
             $check = true;
         }
         return $check;
@@ -51,7 +53,7 @@ final class Outils {
     /* Fonction qui formatte un nombre en monnaie Euro */
     static public function formalizeEuro($montant): string
     {
-        $fmt = numfmt_create( 'fr_FR', NumberFormatter::CURRENCY );
+        $fmt = numfmt_create('fr_FR', NumberFormatter::CURRENCY);
         return numfmt_format_currency($fmt, $montant, "EUR");
     }
 
@@ -59,9 +61,9 @@ final class Outils {
     static public function domainCheck(): bool
     {
         global $domain;
-        $check=false;
-        $referer = substr($_SERVER['HTTP_REFERER'],0,strlen($domain));
-        if( $referer == $domain ) {
+        $check = false;
+        $referer = substr($_SERVER['HTTP_REFERER'], 0, strlen($domain));
+        if ($referer == $domain) {
             $check = true;
         }
         return $check;

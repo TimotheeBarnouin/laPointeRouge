@@ -1,12 +1,12 @@
 <?php
 
-namespace SYRADEV\AutoEncheres\Controllers;
+namespace LISENDER\LaPointeRouge\Controllers;
 
 // On utilisera ici la classe de manipulation de la base de données PdoDb.
-use SYRADEV\AutoEncheres\Utils\Database\PdoDb;
+use LISENDER\LaPointeRouge\Utils\Database\PdoDb;
 
 // Utilisation de la classe de debuggage dBug.
-use SYRADEV\AutoEncheres\Utils\Debug\dBug;
+use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 
 
 /*

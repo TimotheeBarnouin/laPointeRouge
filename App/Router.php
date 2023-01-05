@@ -5,12 +5,12 @@
  * qui définissent la logique de l'application puis génèrerent les affichages.
  */
 
-use SYRADEV\AutoEncheres\Controllers\Encheres;
-use SYRADEV\AutoEncheres\Models\UtilisateursModel;
-use SYRADEV\AutoEncheres\Controllers\Annonces;
-use SYRADEV\AutoEncheres\Controllers\Utilisateurs;
-use SYRADEV\AutoEncheres\Controllers\Errors;
-use SYRADEV\AutoEncheres\Utils\Debug\dBug;
+use LISENDER\LaPointeRouge\Controllers\Encheres;
+use LISENDER\LaPointeRouge\Models\UtilisateursModel;
+use LISENDER\LaPointeRouge\Controllers\Annonces;
+use LISENDER\LaPointeRouge\Controllers\Utilisateurs;
+use LISENDER\LaPointeRouge\Controllers\Errors;
+use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 
 // On démarre le moteur de sessions PHP pour gérer les variables de $_SESSION.
 session_start();
@@ -23,62 +23,62 @@ $_GP = array_merge($_POST, $_GET);
  */
 
 // On détecte les entrées get ou post pour router vers le contôleur ad hoc.
-if(count($_GP)>0) {
+if (count($_GP) > 0) {
 
-    if(isset($_GP['login']) && $_GP['login'] === '1') {
+    if (isset($_GP['login']) && $_GP['login'] === '1') {
         $utilisateur = new Utilisateurs;
         echo $utilisateur->login($_GP);
         exit();
     }
 
-    if(isset($_GP['register']) && $_GP['register'] === '1') {
+    if (isset($_GP['register']) && $_GP['register'] === '1') {
         $utilisateur = new Utilisateurs;
         echo $utilisateur->register($_GP);
         exit();
     }
 
-    if(isset($_GP['error'])) {
+    if (isset($_GP['error'])) {
         $errorNum = $_GP['error'];
         $error = new Errors;
         echo $error->errorDisplay($errorNum);
         exit();
     }
 
-    if(isset($_GP['login'])) {
+    if (isset($_GP['login'])) {
         $login = new Utilisateurs;
         echo $login->authDisplay();
         exit();
     }
 
-    if(isset($_GP['logout'])) {
+    if (isset($_GP['logout'])) {
         Utilisateurs::logout();
         exit();
     }
 
-    if(isset($_GP['register'])) {
+    if (isset($_GP['register'])) {
         $login = new Utilisateurs;
         echo $login->registerDisplay();
         exit();
     }
 
-    if(isset($_GP['annonceid'])) {
+    if (isset($_GP['annonceid'])) {
         $annonceId = $_GP['annonceid'];
         $annonces = new Annonces;
         echo $annonces->details($annonceId);
         exit();
     }
 
-    if(isset($_GP['enchereannonceid'])) {
+    if (isset($_GP['enchereannonceid'])) {
         $annonceId = $_GP['enchereannonceid'];
         // Insertion d'une nouvelle enchère si on est connecté
-        if(isset($_GP['montant']) && isset($_SESSION['user'])) {
+        if (isset($_GP['montant']) && isset($_SESSION['user'])) {
             $enchere = new Encheres;
             $setEnchere = $enchere->setEnchere($_GP);
-            if($setEnchere['enchereCreated']=== true) {
-                header('location:/annonce/'.$annonceId);
+            if ($setEnchere['enchereCreated'] === true) {
+                header('location:/annonce/' . $annonceId);
             }
 
-        //Gestion d'une enchère
+            //Gestion d'une enchère
         } else {
             $annonces = new Annonces();
             echo $annonces->enchere($annonceId);
@@ -92,9 +92,8 @@ $json = file_get_contents('php://input');
 // On convertit le flux JSON en tableau d'objets.
 $data = json_decode($json);
 // On route vers un contrôleur.
-if(!empty($data)) {
-    if(isset($data->getAllAnnonces) && $data->getAllAnnonces === '1') {
+if (!empty($data)) {
+    if (isset($data->getAllAnnonces) && $data->getAllAnnonces === '1') {
         exit();
     }
 }
-

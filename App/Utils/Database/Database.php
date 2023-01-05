@@ -1,23 +1,25 @@
 <?php
 
-namespace SYRADEV\AutoEncheres\Utils\Database;
+namespace LISENDER\LaPointeRouge\Utils\Database;
 
 use PDO, PDOException;
-use SYRADEV\AutoEncheres\Utils\Debug\dBug;
+use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 
-class PdoDb {
+class PdoDb
+{
 
     private static $connect = null;
     private PDO $conx;
 
-    private function __construct() {
+    private function __construct()
+    {
 
         global $conf;
 
         try {
-            $this->conx = new PDO('mysql:host='.$conf['db']['host'].';dbname='.$conf['db']['database'], $conf['db']['user'], $conf['db']['password'], [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+            $this->conx = new PDO('mysql:host=' . $conf['db']['host'] . ';dbname=' . $conf['db']['database'], $conf['db']['user'], $conf['db']['password'], [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
             $this->conx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
         }
@@ -31,10 +33,11 @@ class PdoDb {
         return self::$connect;
     }
 
-    public function requete($sql, $fetchMethod='fetchAll') {
+    public function requete($sql, $fetchMethod = 'fetchAll')
+    {
         try {
             $result = $this->conx->query($sql, PDO::FETCH_ASSOC)->{$fetchMethod}();
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
         }
@@ -63,13 +66,13 @@ class PdoDb {
         $params_str = implode(',', $params);
 
         // On prépare la requête
-        $reqInsert = 'INSERT INTO ' . $table . '('. implode(',',$fields).')';
-        $reqInsert .= ' VALUES('.$params_str.')';
+        $reqInsert = 'INSERT INTO ' . $table . '(' . implode(',', $fields) . ')';
+        $reqInsert .= ' VALUES(' . $params_str . ')';
 
         $prepared = $this->conx->prepare($reqInsert);
 
         // On injecte dans la requête les données avec leur type.
-        for($i=0;$i<$values_count;$i++) {
+        for ($i = 0; $i < $values_count; $i++) {
             $type = match (gettype($values[$i])) {
                 'NULL' => PDO::PARAM_NULL,
                 'integer' => PDO::PARAM_INT,
@@ -77,7 +80,7 @@ class PdoDb {
                 default => PDO::PARAM_STR,
             };
             // On lie une valeur au paramètre :pX
-            $prepared->bindParam(':p'.$i, $values[$i], $type);
+            $prepared->bindParam(':p' . $i, $values[$i], $type);
         }
 
         // On exécute la requête.
@@ -86,8 +89,8 @@ class PdoDb {
     }
 
     // Met à jour une donnée dans une table
-    public function maj($table, $data) {
-
+    public function maj($table, $data)
+    {
     }
 
     // Retourne l'id de la dernière insertion par auto-incrément dans la base de données

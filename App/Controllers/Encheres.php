@@ -1,14 +1,15 @@
 <?php
 
-namespace SYRADEV\AutoEncheres\Controllers;
+namespace LISENDER\LaPointeRouge\Controllers;
 
-use SYRADEV\AutoEncheres\Controllers\Controller;
-use SYRADEV\AutoEncheres\Models\EncheresModel;
-use SYRADEV\AutoEncheres\Utils\Database\PdoDb;
-use SYRADEV\AutoEncheres\Utils\Debug\dBug;
-use SYRADEV\AutoEncheres\Utils\Php\Outils;
+use LISENDER\LaPointeRouge\Controllers\Controller;
+use LISENDER\LaPointeRouge\Models\EncheresModel;
+use LISENDER\LaPointeRouge\Utils\Database\PdoDb;
+use LISENDER\LaPointeRouge\Utils\Debug\dBug;
+use LISENDER\LaPointeRouge\Utils\Php\Outils;
 
-class Encheres extends Controller {
+class Encheres extends Controller
+{
 
     /*
     * Enregistre une enchère

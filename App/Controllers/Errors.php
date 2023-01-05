@@ -1,10 +1,11 @@
 <?php
 
-namespace SYRADEV\AutoEncheres\Controllers;
+namespace LISENDER\LaPointeRouge\Controllers;
 
 /*
  *  Classe de gestion des erreurs étendue depuis la classe Controller.
  */
+
 class Errors extends Controller
 {
     /*
@@ -12,7 +13,6 @@ class Errors extends Controller
      */
     public function errorDisplay($errorNum): array|string
     {
-        return $this->render('layouts.default','templates.errors', $errorNum);
+        return $this->render('layouts.default', 'templates.errors', $errorNum);
     }
-
 }

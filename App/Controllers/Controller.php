@@ -1,14 +1,14 @@
 <?php
 
-namespace SYRADEV\AutoEncheres\Controllers;
+namespace LISENDER\LaPointeRouge\Controllers;
 
 class Controller
 {
     const VIEWPATH = __DIR__ . '/../../Views/';
     const EXT = '.tmpl.php';
-    const PAGETITLE = 'Auto-Enchères';
+    const PAGETITLE = 'LaPointeRouge';
 
-    public function render($layout, $view, $data=null): array|string
+    public function render($layout, $view, $data = null): array|string
     {
         // Récupère le layout
         $layout_ar = explode('.', $layout);
@@ -19,7 +19,7 @@ class Controller
         $layout = str_replace('{pageTitle}', self::PAGETITLE, $layout_content);
 
         // Récupère le template de contenus
-        $view_ar = explode('.', $view );
+        $view_ar = explode('.', $view);
         ob_start();
         require_once(self::VIEWPATH . ucfirst($view_ar[0]) . '/' . $view_ar[1] . self::EXT);
         $view_content = ob_get_contents();

@@ -8,7 +8,7 @@
         <div class="col-6 mt-3 mb-3 mx-auto">
             <div class="card">
                 <div class="card-body">
-                   <!-- Formulaire traité en Ajax avec Fetch, ne comporte qu'un id. -->
+                    <!-- Formulaire traité en Ajax avec Fetch, ne comporte qu'un id. -->
                     <form id="loginform" autocomplete="off">
                         <div class="form-group has-validation mb-3">
                             <label for="email" class="form-label">Courriel :</label>

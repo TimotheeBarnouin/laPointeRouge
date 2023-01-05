@@ -10,7 +10,7 @@ $conf = [
     'db' => [
         /* Entrez ici vos identifiants pour se connecter à la base de données */
         'host'      => 'localhost',
-        'database'  => 'auto-encheres1',
+        'database'  => 'lapointerouge',
         'user'      => 'root',
         'password' => 'timothee01'
     ]
