@@ -19,7 +19,7 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
 <div class="container">
     <div class="row">
         <div class="col mt-3 mb-3">
-            <h1 class="d-inline">Liste des produits</h1>
+            <h1 class="d-inline">Nos réalisations</h1>
             &nbsp;::&nbsp;
             <h3 class="d-inline">Faites vos jeux, rien ne va plus !</h3>
         </div>

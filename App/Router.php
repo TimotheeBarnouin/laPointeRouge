@@ -6,9 +6,11 @@
  */
 
 use LISENDER\LaPointeRouge\Controllers\Produits;
+use LISENDER\LaPointeRouge\Controllers\Controller;
 use LISENDER\LaPointeRouge\Controllers\Encheres;
 use LISENDER\LaPointeRouge\Models\UtilisateursModel;
 use LISENDER\LaPointeRouge\Controllers\Annonces;
+use LISENDER\LaPointeRouge\Controllers\Artisan;
 use LISENDER\LaPointeRouge\Controllers\Utilisateurs;
 use LISENDER\LaPointeRouge\Controllers\Errors;
 use LISENDER\LaPointeRouge\Utils\Debug\dBug;
@@ -108,6 +110,12 @@ if (count($_GP) > 0) {
     if (isset($_GP['mesure'])) {
         $mesure = new Produits;
         echo $mesure->list_sur_mesure_complete();
+        exit();
+    }
+
+    if (isset($_GP['artisan'])) {
+        $forge = new Artisan;
+        echo $forge->artisan_page();
         exit();
     }
 }

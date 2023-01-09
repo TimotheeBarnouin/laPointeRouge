@@ -17,19 +17,19 @@ switch ($uriSegments[1]) {
         break;
 }
 ?>
-<header class="p-3 text-bg-dark">
+<header class="p-1 text" style="background: #910000">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img id="toplogo" src="/Imgs/car.svg" alt="Auto-enchères">
+                <img id="toplogo" src="/Imgs/logo.png" alt="LaPointeRouge">
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2<?= $activeHome ?>">Accueil</a></li>
-                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Notre artisan</a></li>
-                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Nos réalisations</a></li>
-                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Vos projets personnalisés</a></li>
-                <li><a href="/logout" class="nav-link px-2<?= $activeHome ?>">Votre projet</a></li>
+                <li><a href="/artisan" class="nav-link px-2<?= $activeHome ?>">Notre artisan</a></li>
+                <li><a href="/produits" class="nav-link px-2<?= $activeHome ?>">Nos réalisations</a></li>
+                <li><a href="/personnalises" class="nav-link px-2<?= $activeHome ?>">Vos projets personnalisés</a></li>
+                <li><a href="/projet" class="nav-link px-2<?= $activeHome ?>">Votre projet</a></li>
                 <?php
                 if (isset($_SESSION['user'])) {
                 ?>
