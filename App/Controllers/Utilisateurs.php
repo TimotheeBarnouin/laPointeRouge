@@ -49,7 +49,7 @@ class Utilisateurs extends Controller
 
             // Requete de type SELECT * sur la table utilisateurs,
             // On applique à la clause WHERE la condition d'égalité du courriel et du mot de passe haché MD5.
-            $sql = 'SELECT * FROM `utilisateurs` WHERE `email`="' . $email . '" AND `password`="' . MD5($password) . '"';
+            $sql = 'SELECT * FROM `client` WHERE `email`="' . $email . '" AND `password`="' . MD5($password) . '"';
 
             // On exécute la requête grace à la class PdoDb.
             $login = PdoDb::getInstance()->requete($sql, 'fetch');

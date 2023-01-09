@@ -5,13 +5,13 @@ window.onload = () => {
     /********************************************************************/
     /*** On gère l'apparence des champs en erreur ou pas, à la saisie ***/
     /********************************************************************/
-    d.querySelectorAll('#nom, #prenom, #email, #password, #password2').forEach(field => {
+    d.querySelectorAll('#nom, #prenom, #email, #tel, #password, #password2').forEach(field => {
         field.addEventListener('input', (e) => {
             setApparence(e.currentTarget);
         });
     });
 
-   /************************************************************************************/
+    /************************************************************************************/
     /*** On déclare un gestionnaire d'événement click sur le bouton d'enregistrement ***/
     /***********************************************************************************/
     d.querySelector('#register-btn').addEventListener('click', (e) => {
@@ -36,32 +36,38 @@ window.onload = () => {
         for (let field of registerdata) {
             // la variable field prend la valeur de couples [Champ,Valeur] soit field[0] ou field[1]
             // Pour chaque champ en erreur on stocke son nom dans le tableau formError
-            switch(field[0]) {
+            switch (field[0]) {
                 case 'nom':
                     nom = field[1];
-                    if(!field[1].trim().length) {
+                    if (!field[1].trim().length) {
                         formError.push('nom');
                     }
                     break;
                 case 'prenom':
                     prenom = field[1];
-                    if(!field[1].trim().length) {
+                    if (!field[1].trim().length) {
                         formError.push('prenom');
                     }
                     break;
                 case 'email':
-                    if(!field[1].trim().length || !ValideEmail(field[1])) {
+                    if (!field[1].trim().length || !ValideEmail(field[1])) {
                         formError.push('email');
+                    }
+                    break;
+                case 'tel':
+                    prenom = field[1];
+                    if (!field[1].trim().length) {
+                        formError.push('tel');
                     }
                     break;
                 case 'password':
                     password = field[1];
-                    if(!field[1].trim().length) {
+                    if (!field[1].trim().length) {
                         formError.push('password');
                     }
                     break;
                 case 'password2':
-                    if(!field[1].trim().length || field[1] !== password) {
+                    if (!field[1].trim().length || field[1] !== password) {
                         formError.push('password2');
                     }
                     break;
@@ -70,7 +76,7 @@ window.onload = () => {
 
         // Si le tableau formError est vide, il n'y a pas d'erreur
         // On effectue la requête fetch
-        if(!formError.length) {
+        if (!formError.length) {
 
             // On soumet le formulaire via l'API fetch en méthod POST
             // On transmet l'objet FormData contactdata
@@ -78,14 +84,14 @@ window.onload = () => {
                 method: 'POST',
                 body: registerdata
 
-           // On attend la réponse et on la converti en objet Javascript dès sa réception
+                // On attend la réponse et on la converti en objet Javascript dès sa réception
             }).then(response => {
                 return response.json();
 
-           // Puis on réceptionne l'objet converti dans la variable data
+                // Puis on réceptionne l'objet converti dans la variable data
             }).then(data => {
                 // On s'assure que la réponse a bien dans sa structure l'objet data.usercreated à vrai
-                if(data.usercreated === true) {
+                if (data.usercreated === true) {
                     // On masque le formulaire d'enregistrement
                     registerForm.classList.add('d-none');
                     let registerZone = d.querySelector('#registerZone');
@@ -97,11 +103,11 @@ window.onload = () => {
                 console.error(error);
             });
 
-        // Le tableau formError contient des nom de champ
+            // Le tableau formError contient des nom de champ
         } else {
 
             // On applique la classe is-invalid aux champs en erreur
-            for(let error of formError) {
+            for (let error of formError) {
                 d.querySelector(`#${error}`).classList.add('is-invalid');
             }
             // On enlève le focus sur le bouton de soumission du formulaire
