@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ces commentaires avec des @ servent à identifier les variables de la page.
  * Peut être utile dans certains éditeurs comme PHPStorm
@@ -17,11 +18,12 @@
  * @var string $montant
  */
 
-use SYRADEV\AutoEncheres\Utils\Php\Outils;
-extract($data);
+use LISENDER\LaPointeRouge\Utils\Php\Outils;
+
+extract($data, $data2);
 
 // On détecte l'expiration de l'enchère
-$enchereExpires = time()-$date_fin_enchere > 0;
+$enchereExpires = time() - $date_fin_enchere > 0;
 ?>
 
 <div class="container">
@@ -45,17 +47,17 @@ $enchereExpires = time()-$date_fin_enchere > 0;
                             <p>Description: <?= $description; ?>.</p>
                             <p>Prix de départ: <?= Outils::formalizeEuro($prix_depart); ?>.</p>
                             <?php
-                                if(!empty($date) && !empty($montant)) {
+                            if (!empty($date) && !empty($montant)) {
                             ?>
-                                    <p>Date de la derni&egrave;re d'ench&egrave;re : <?= date('d/m/Y', $date); ?>.</p>
-                                    <p>Montant de la derni&egrave;re ench&egrave;re : <strong class="orange"><?= Outils::formalizeEuro($montant); ?></strong>.
-                            <?php
-                                } else {
-                            ?>
+                                <p>Date de la derni&egrave;re d'ench&egrave;re : <?= date('d/m/Y', $date); ?>.</p>
+                                <p>Montant de la derni&egrave;re ench&egrave;re : <strong class="orange"><?= Outils::formalizeEuro($montant); ?></strong>.
+                                <?php
+                            } else {
+                                ?>
                                     <span class="text-warning bg-dark p-2">Aucune enchère n'a encore été déposée pour cette annonce !</span>
-                            <?php
-                                }
-                            ?>
+                                <?php
+                            }
+                                ?>
                         </div>
                     </div>
                 </div>
@@ -66,15 +68,16 @@ $enchereExpires = time()-$date_fin_enchere > 0;
                         </div>
                         <div class="col">
                             <?php
-                            if(!$enchereExpires) {
-                                if(isset($_SESSION['user'])) {
-                                ?>
+                            if (!$enchereExpires) {
+                                if (isset($_SESSION['user'])) {
+                            ?>
                                     <a href="/bid/<?= $uid_annonce; ?>" class="btn btn-outline-primary float-end">Proposer une enchère</a>
                                 <?php } else { ?>
                                     <a href="/login" class="btn btn-outline-primary float-end">Se connecter et proposer une enchère</a>
-                                <?php } } else { ?>
+                                <?php }
+                            } else { ?>
                                 <h3 class="text-danger d-inline-flex p-1 bg-dark">Enchère expirée !</h3>
-                                <?php } ?>
+                            <?php } ?>
                             <a href="/" class="btn btn-outline-primary float-end mx-2">Retourner à la liste</a>
                         </div>
                     </div>
@@ -83,4 +86,3 @@ $enchereExpires = time()-$date_fin_enchere > 0;
         </div>
     </div>
 </div>
-

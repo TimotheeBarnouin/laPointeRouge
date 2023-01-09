@@ -42,7 +42,7 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
                     <div class="card-body">
                         <h5 class="card-title nom"><?= $nom; ?></h5>
                         <p class="card-text"><?= $description; ?></p>
-                        <p class="card-text"><?= $dimensions; ?> m</p>
+                        <p class="card-text"><?= $dimensions; ?> cm</p>
                         <p class="card-text"><?= $metal; ?></p>
                         <p class="card-text"><?= $poids; ?> kg</p>
                         <p class="card-text"><?= $temps_conception; ?> heures</p>

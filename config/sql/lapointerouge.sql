@@ -28,10 +28,10 @@ CREATE TABLE `produit_sur_mesure` (
 --
 
 INSERT INTO `produit_sur_mesure` (`uid_sur_mesure`, `nom`, `description`, `dimensions`, `metal`, `poids`, `temps_conception`, `photo`) VALUES
-(1, "Justice du chevalier", "Une lame finement ouvragée pour créer une épée digne d'un chevalier en mission.", '0.980 x 17 x 5', 'Argent, or', 1.3, 84, 'justice_du_chevalier.jpg'),
-(2, "La claymore au Lys", "Epée proposant d'assembler la popularité de la claymore avec la royauté de la fleur de lys.", '1.3 x 21 x 6', 'Acier, or, ébène', 1.6, 79, 'la_claymore_au_lys.jpg'),
-(3, "Hache de la Légion noire", "Une réplique provenant de la célèbre collection Swords of the Ancients.", '1.086 x 31 x 7', 'Acier', 1.3, 84, 'double_legion_noire.jpg'),
-(4, "Le poing de Sauron", "Une réplique de la mace utilisée par Sauron dans l'univers cinématographique.", '0.800 x 22 x 22', 'Acier', 2.4, 121, 'le_poing_de_sauron.jpg');
+(1, "Justice du chevalier", "Une lame finement ouvragée pour créer une épée digne d'un chevalier en mission.", '98 x 17 x 5', 'Argent, or', 1.3, 84, 'justice_du_chevalier.jpg'),
+(2, "La claymore au Lys", "Epée proposant d'assembler la popularité de la claymore avec la royauté de la fleur de lys.", '130 x 21 x 6', 'Acier, or, ébène', 1.6, 79, 'la_claymore_au_lys.jpg'),
+(3, "Hache de la Légion noire", "Une réplique provenant de la célèbre collection Swords of the Ancients.", '108.6 x 31 x 7', 'Acier', 1.3, 84, 'double_legion_noire.jpg'),
+(4, "Le poing de Sauron", "Une réplique de la mace utilisée par Sauron dans l'univers cinématographique.", '80 x 22 x 22', 'Acier', 2.4, 121, 'le_poing_de_sauron.jpg');
 
 -- --------------------------------------------------------
 
@@ -84,8 +84,8 @@ INSERT INTO `produit_standard` (`uid_standard`, `nom`, `description`, `dimension
 (11, 'Hachette', "Une hachette avec manche et métal peints.", '35 x 17 x 4', 'Acier, chêne', 0.390, 13, 130, 'hachette.jpg')
 (12, 'Hache fantasy', "Une hache d'inspiration fantasy avec un crâne, hallebarde courte.", '64 x 24 x 6', 'Acier, chêne', 0.640, 29, 300, 'hache_fantasy.jpg'),
 (13, 'Hache ouvragée', "Une hache longue ouvragée.", '71 x 20 x 7', 'Acier, chêne', 0.940, 22, 280, 'hache_ouvragee.jpg'),
-(14, 'Lance commune', "Une hache commune, simple et efficace.", '1.3 x 10 x 4', 'Acier, chêne', 1.09, 11, 150, 'lance_commune.jpg'),
-(15, 'Lance moderne', "Une lance de conception moderne, pour le chasseur d'aujourd'hui.", '1.2 x 8 x 4', 'Acier', 0.750, 26, 280, 'lance_moderne.jpg');
+(14, 'Lance commune', "Une hache commune, simple et efficace.", '130 x 10 x 4', 'Acier, chêne', 1.09, 11, 150, 'lance_commune.jpg'),
+(15, 'Lance moderne', "Une lance de conception moderne, pour le chasseur d'aujourd'hui.", '120 x 8 x 4', 'Acier', 0.750, 26, 280, 'lance_moderne.jpg');
 
 -- --------------------------------------------------------
 

@@ -8,7 +8,7 @@ class Controller
     const EXT = '.tmpl.php';
     const PAGETITLE = 'LaPointeRouge';
 
-    public function render($layout, $view, $data = null): array|string
+    public function render($layout, $view, $data = null, $data2 = null): array|string
     {
         // Récupère le layout
         $layout_ar = explode('.', $layout);
