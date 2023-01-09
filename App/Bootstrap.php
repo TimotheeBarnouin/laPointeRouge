@@ -9,5 +9,4 @@
 use LISENDER\LaPointeRouge\Controllers\Produits;
 
 $produits = new Produits();
-echo $produits->list_standard();
-echo $produits->list_sur_mesure();
+echo $produits->list_rand();

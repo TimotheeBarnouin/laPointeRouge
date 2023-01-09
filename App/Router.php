@@ -5,10 +5,13 @@
  * qui définissent la logique de l'application puis génèrerent les affichages.
  */
 
-use LISENDER\LaPointeRouge\Controllers\Produits;
+
 use LISENDER\LaPointeRouge\Controllers\Controller;
+use LISENDER\LaPointeRouge\Controllers\Produits;
+use LISENDER\LaPointeRouge\Controllers\Commande;
 use LISENDER\LaPointeRouge\Controllers\Encheres;
 use LISENDER\LaPointeRouge\Models\UtilisateursModel;
+use LISENDER\LaPointeRouge\Models\CommandesModel;
 use LISENDER\LaPointeRouge\Controllers\Annonces;
 use LISENDER\LaPointeRouge\Controllers\Artisan;
 use LISENDER\LaPointeRouge\Controllers\Utilisateurs;
@@ -64,6 +67,30 @@ if (count($_GP) > 0) {
         exit();
     }
 
+    if (isset($_GP['standard'])) {
+        $standard = new Produits;
+        echo $standard->list_standard_complete();
+        exit();
+    }
+
+    if (isset($_GP['mesure'])) {
+        $mesure = new Produits;
+        echo $mesure->list_sur_mesure_complete();
+        exit();
+    }
+
+    if (isset($_GP['artisan'])) {
+        $forge = new Artisan;
+        echo $forge->artisan_page();
+        exit();
+    }
+
+    if (isset($_GP['commande'])) {
+        $Form = new Commande;
+        echo $Form->commande_perso();
+        exit();
+    }
+
     if (isset($_GP['annonceid'])) {
         $annonceId = $_GP['annonceid'];
         $annonces = new Annonces;
@@ -86,36 +113,6 @@ if (count($_GP) > 0) {
             $annonces = new Annonces();
             echo $annonces->enchere($annonceId);
         }
-        exit();
-    }
-
-    if (isset($_GP['standardRand'])) {
-        $standardRand = new Produits;
-        echo $standardRand->list_standard();
-        exit();
-    }
-
-    if (isset($_GP['mesureRand'])) {
-        $mesureRand = new Produits;
-        echo $mesureRand->list_sur_mesure();
-        exit();
-    }
-
-    if (isset($_GP['standard'])) {
-        $standard = new Produits;
-        echo $standard->list_standard_complete();
-        exit();
-    }
-
-    if (isset($_GP['mesure'])) {
-        $mesure = new Produits;
-        echo $mesure->list_sur_mesure_complete();
-        exit();
-    }
-
-    if (isset($_GP['artisan'])) {
-        $forge = new Artisan;
-        echo $forge->artisan_page();
         exit();
     }
 }
