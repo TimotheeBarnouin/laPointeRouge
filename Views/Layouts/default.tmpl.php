@@ -41,7 +41,7 @@ $uriSegments = Outils::getUriSegments();
     ?>
         <script src="/Js/fancybox.min.js"></script>
         <script src="/Js/isotope.pkgd.min.js"></script>
-        <script src="/Js/isotope.min.js"></script>
+        <script src="/Js/isotope.js"></script>
     <?php
     }
     if ($uriSegments[1] === 'annonce') {

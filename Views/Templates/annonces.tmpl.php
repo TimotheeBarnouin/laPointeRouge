@@ -1,5 +1,7 @@
 <?php
+
 use SYRADEV\AutoEncheres\Utils\Php\Outils;
+
 /**
  * @var int $uid_annonce
  * @var string $marque
@@ -18,29 +20,29 @@ use SYRADEV\AutoEncheres\Utils\Php\Outils;
         </div>
     </div>
     <?php
-        require_once('../Views/Partials/marques-filter.tmpl.php');
-        require_once('../Views/Partials/order.tmpl.php');
+    require_once('../Views/Partials/marques-filter.tmpl.php');
+    require_once('../Views/Partials/order.tmpl.php');
     ?>
     <div class="row">
         <div class="grid">
             <?php
-                /** @var array $data */
-                foreach($data as $annonce) {
-                    //on utilise extract pour simplifier l'appel aux variables d'une annonce.
-                    extract($annonce);
+            /** @var array $data */
+            foreach ($data as $annonce) {
+                //on utilise extract pour simplifier l'appel aux variables d'une annonce.
+                extract($annonce);
             ?>
-                    <div class="card grid-item <?= Outils::sanitizeName($marque);?>">
-                        <a class="link" data-fancybox="<?= $marque; ?>" data-src="/Imgs/<?= $photo; ?>" data-caption="<strong><?= $marque; ?></strong> | <?= $modele; ?>">
-                            <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $marque; ?>">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title marque"><?= $marque; ?><br><?= $modele; ?></h5>
-                            <p class="card-text"><?= $description; ?></p>
-                            <a href="/annonce/<?=  $uid_annonce; ?>" class="btn btn-details btn-outline-primary">Détails</a>
-                        </div>
+                <div class="card grid-item <?= Outils::sanitizeName($marque); ?>">
+                    <a class="link" data-fancybox="<?= $marque; ?>" data-src="/Imgs/<?= $photo; ?>" data-caption="<strong><?= $marque; ?></strong> | <?= $modele; ?>">
+                        <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $marque; ?>">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title marque"><?= $marque; ?><br><?= $modele; ?></h5>
+                        <p class="card-text"><?= $description; ?></p>
+                        <a href="/annonce/<?= $uid_annonce; ?>" class="btn btn-details btn-outline-primary">Détails</a>
                     </div>
+                </div>
             <?php
-                }
+            }
             ?>
         </div>
     </div>

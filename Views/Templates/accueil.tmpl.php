@@ -48,17 +48,29 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
         </div>
         <div class="col-4"> <!-- liste verticale produit sur mesure photo uniquement, 3 -->
             <ul>
-                <li>Élément de liste 1</li>
-                <li>Élément de liste 2</li>
-                <li>Élément de liste 3</li>
+                <?php foreach ($data as $rand1) {
+
+                ?>
+                    <li><a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
+                            <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $rand1['nom']; ?>">
+                        </a></li>
             </ul>
+        <?php
+                }
+        ?>
         </div>
         <div class="col-4"> <!-- liste verticale produit standard image + nom + tarif -->
             <ul>
-                <li>Élément de liste 1</li>
-                <li>Élément de liste 2</li>
-                <li>Élément de liste 3</li>
+                <?php foreach ($data2 as $rand2) {
+
+                ?>
+                    <li><a class="link" data-fancybox="<?= $rand2['nom']; ?>" data-src="/Imgs/<?= $rand2['photo']; ?>" data-caption="<strong><?= $rand2['nom']; ?></strong>">
+                            <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $rand2['nom']; ?>">
+                        </a></li>
             </ul>
+        <?php
+                }
+        ?>
         </div>
     </div>
 </div>

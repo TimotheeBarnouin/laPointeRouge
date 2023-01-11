@@ -16,6 +16,7 @@ use LISENDER\LaPointeRouge\Controllers\Annonces;
 use LISENDER\LaPointeRouge\Controllers\Artisan;
 use LISENDER\LaPointeRouge\Controllers\Utilisateurs;
 use LISENDER\LaPointeRouge\Controllers\Errors;
+use LISENDER\LaPointeRouge\Controllers\Paniers;
 use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 
 // On démarre le moteur de sessions PHP pour gérer les variables de $_SESSION.
@@ -94,6 +95,12 @@ if (count($_GP) > 0) {
     if (isset($_GP['commande'])) {
         $Form = new Commande;
         echo $Form->commande_perso();
+        exit();
+    }
+
+    if (isset($_GP['panier'])) {
+        $panier = new Paniers;
+        echo $panier->panier();
         exit();
     }
 

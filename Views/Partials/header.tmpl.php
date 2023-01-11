@@ -43,6 +43,7 @@ switch ($uriSegments[1]) {
                 <?php
                 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
                 ?>
+                    <a href="/panier" class="btn btn-outline-light me-2<?= $activeRegister; ?>">Panier</a>
                     <a href="/logout" class="btn btn-outline-light me-2">Déconnexion</a>
                 <?php
                 } else {

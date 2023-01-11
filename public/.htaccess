@@ -54,6 +54,7 @@ RewriteRule ^commande$ ./?commande [L,NC]
 RewriteRule ^produit$ ./?produit [L,NC]
 RewriteRule ^standard$ ./?standard [L,NC]
 RewriteRule ^mesure$ ./?mesure [L,NC]
+RewriteRule ^panier$ ./?panier [L,NC]
 RewriteRule ^standard/([0-9]+)$ ./?standardid=$1 [L,NC]
 RewriteRule ^mesure/([0-9]+)$ ./?mesureid=$1 [L,NC]
 
