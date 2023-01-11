@@ -16,18 +16,12 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
  * @var string $photo
  */
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col mt-3 mb-3">
-            <h1 class="d-inline">Nos réalisations</h1>
-            <br>
-            <h3 class="d-inline">Vous trouverez votre bonheur</h3>
-        </div>
-    </div>
-    <?php /*
-    require_once('../Views/Partials/marques-filter.tmpl.php');
-    require_once('../Views/Partials/order.tmpl.php'); */
-    ?>
+<div class="text-center">
+    <h1 class="display-1">
+        Découvrez nos produits !
+    </h1>
+</div>
+<div class="container text-center">
     <div class="row">
         <div class="grid">
             <?php
@@ -36,18 +30,19 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
                 //on utilise extract pour simplifier l'appel aux variables d'une annonce.
                 extract($produit);
             ?>
-                <div class="card grid-item <?= Outils::sanitizeName($nom); ?>">
+                <div class="card grid-item  bg-secondary <?= Outils::sanitizeName($nom); ?>">
                     <a class="link" data-fancybox="<?= $nom; ?>" data-src="/Imgs/<?= $photo; ?>" data-caption="<strong><?= $nom; ?></strong> | <?= $description; ?>">
                         <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $nom; ?>">
                     </a>
-                    <div class="card-body">
-                        <h5 class="card-title nom"><?= $nom; ?><br><?= $prix; ?> euros</h5>
-                        <p class="card-text"><?= $description; ?></p>
-                        <p class="card-text"><?= $dimensions; ?> cm</p>
-                        <p class="card-text"><?= $metal; ?></p>
-                        <p class="card-text"><?= $poids; ?> kg</p>
-                        <p class="card-text"><?= $temps_conception; ?> heures</p><br>
-                        <a href="/standard/<?= $uid_standard; ?>" class="btn btn-details btn-outline-primary">Détail</a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary"><?= $nom; ?><br><?= $prix; ?> euros</h5>
+                        <p class="card-text text-primary"><?= $description; ?></p>
+                        <p class="card-text text-primary">Dimensions : <?= $dimensions; ?> cm
+                            <br>Métal : <?= $metal; ?>
+                            <br>Poids : <?= $poids; ?> kg
+                            <br>Conception : <?= $temps_conception; ?> heures
+                        </p>
+                        <a href="/standard/<?= $uid_standard; ?>" class="btn btn-primary">Détail</a>
                     </div>
                 </div>
             <?php

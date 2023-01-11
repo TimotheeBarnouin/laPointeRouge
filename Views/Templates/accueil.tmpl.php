@@ -30,47 +30,50 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
  */
 ?>
 
-<div class="container">
+<div class="container text-center">
     <div class="row">
-        <div class="col-4"> <!-- forgeron photo + texte -->
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">Notre local</h5>
-                </div>
-                <div class="card-body">
-                    <img class="card-img-top" src="Imgs/forge.jpg">
-                    <p class="card-text">Texte de la carte</p>
-                </div>
-                <div class="card-footer">
-                    <!-- contenu du pied de page de la carte -->
-                </div>
+        <!-- forgeron photo + texte -->
+        <div class="col-sm-8">
+            <div class="card-body bg-secondary">
+                <img class="img" src="Imgs/forge.jpg">
             </div>
         </div>
-        <div class="col-4"> <!-- liste verticale produit sur mesure photo uniquement, 3 -->
-            <ul>
-                <?php foreach ($data as $rand1) {
-
-                ?>
-                    <li><a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
-                            <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $rand1['nom']; ?>">
-                        </a></li>
-            </ul>
-        <?php
-                }
+    </div>
+    <div class="row"><!-- liste verticale produit sur mesure photo uniquement, 2 -->
+        <?php foreach ($data2 as $rand2) {
         ?>
-        </div>
-        <div class="col-4"> <!-- liste verticale produit standard image + nom + tarif -->
-            <ul>
-                <?php foreach ($data2 as $rand2) {
-
-                ?>
-                    <li><a class="link" data-fancybox="<?= $rand2['nom']; ?>" data-src="/Imgs/<?= $rand2['photo']; ?>" data-caption="<strong><?= $rand2['nom']; ?></strong>">
-                            <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $rand2['nom']; ?>">
-                        </a></li>
-            </ul>
+            <div class="col-sm-6">
+                <div class="card mb-3 bg-secondary" style="width: 18rem;">
+                    <a class="link" data-fancybox="<?= $rand2['nom']; ?>" data-src="/Imgs/<?= $rand2['photo']; ?>" data-caption="<strong><?= $rand2['nom']; ?></strong>">
+                        <img src="/Imgs/<?= $rand2['photo']; ?>" class="card-img-top" alt="<?= $rand2['nom']; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><?= $rand2['nom']; ?></h5>
+                        </div>
+                </div>
+            </div>
         <?php
-                }
+        }
         ?>
-        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4"><!-- liste verticale produit standard image + nom + tarif -->
+        <?php foreach ($data as $rand1) {
+        ?>
+            <div class="col-sm">
+                <div class="card mb-3  bg-secondary" style="width: 18rem;">
+                    <a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
+                        <img src="/Imgs/<?= $rand1['photo']; ?>" class="card-img" alt="<?= $rand1['nom']; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title text-center"><?= $rand1['nom']; ?></h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+        </ul>
     </div>
 </div>
