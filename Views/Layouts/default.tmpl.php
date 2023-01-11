@@ -65,6 +65,13 @@ $uriSegments = Outils::getUriSegments();
     <?php
     }
     ?>
+    <?php
+    if ($uriSegments[1] === 'commande') {
+    ?>
+        <script src="/Js/commande.js"></script>
+    <?php
+    }
+    ?>
 </body>
 
 </html>

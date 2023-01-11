@@ -22,4 +22,37 @@ class Commande extends Controller
     {
         return $this->render('layouts.default', 'templates.commande');
     }
+
+    /*
+    * Enregistre une commande
+    */
+    public function registerCommande($newCommande): bool|string
+    {
+
+        $commandeCreated = false;
+        $newCommandeId = 0;
+        $escobar = $newCommande['escobar'];
+
+        // Le champ escobar du formulaire, caché par CSS doit être vide,
+        // Un bot le remplira forcément...
+        if ($escobar === '') {
+
+            // on nettoie les données pour éviter des éventuelles injections XSS.
+            $newCommandeClean = Outils::cleanUpValues($newCommande);
+
+            //On vérifie si la commande existe déjà en vérifiant la description pour éviter un doublon
+            $req_commande_exists = "SELECT `uid_commande` FROM `commande_sur_mesure` WHERE `description`='" . $newCommandeClean['description'] . "'";
+            $res_commande_exists = PdoDb::getInstance()->requete($req_commande_exists, 'fetch');
+            if (is_array($res_commande_exists) && !empty($res_commande_exists)) {
+                $commandeCreated = false;
+            } else {
+                // On enregistre l'utilisateur
+                $newCommandeObj = new CommandesModel($newCommandeClean);
+                PdoDb::getInstance()->inserer('commande_sur_mesure', $newCommandeObj);
+                $newCommandeId = PdoDb::getInstance()->dernierIndex();
+                $commandeCreated = true;
+            }
+        }
+        return json_encode(['usercreated' => $commandeCreated, 'newUserId' => $newCommandeId]);
+    }
 }

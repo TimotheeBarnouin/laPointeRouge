@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-6 mt-3 mb-3 mx-auto">
             <div class="card">
-                <div class="card-body" id="registerZone">
-                    <form id="registerform" method="POST">
+                <div class="card-body" id="commandeZone">
+                    <form id="commandeform">
                         <div class="form-group has-validation mb-3">
                             <label for="nom" class="form-label">Nom :</label>
                             <input type="text" class="form-control" name="nom" id="nom" required autofocus>
@@ -36,7 +36,7 @@
                         <label for="escobar"></label>
                         <input type="text" id="escobar" name="escobar">
                         <div class="form-group">
-                            <button type="button" id="register-btn" class="btn btn-outline-primary float-end">Envoyer</button>
+                            <button type="button" id="commande-btn" class="btn btn-outline-primary float-end">Envoyer</button>
                         </div>
                     </form>
                 </div>

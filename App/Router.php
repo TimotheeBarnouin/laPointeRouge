@@ -43,6 +43,12 @@ if (count($_GP) > 0) {
         exit();
     }
 
+    if (isset($_GP['commande']) && $_GP['commande'] === '1') {
+        $commande = new Commande;
+        echo $commande->registerCommande($_GP);
+        exit();
+    }
+
     if (isset($_GP['error'])) {
         $errorNum = $_GP['error'];
         $error = new Errors;
