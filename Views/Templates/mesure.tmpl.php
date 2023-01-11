@@ -45,8 +45,8 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
                         <p class="card-text"><?= $dimensions; ?> cm</p>
                         <p class="card-text"><?= $metal; ?></p>
                         <p class="card-text"><?= $poids; ?> kg</p>
-                        <p class="card-text"><?= $temps_conception; ?> heures</p>
-                        <!--<a href="/annonce/<?= $uid_annonce; ?>" class="btn btn-details btn-outline-primary">Détails</a>-->
+                        <p class="card-text"><?= $temps_conception; ?> heures</p><br>
+                        <a href="/mesure/<?= $uid_sur_mesure; ?>" class="btn btn-details btn-outline-primary">Détails</a>
                     </div>
                 </div>
             <?php

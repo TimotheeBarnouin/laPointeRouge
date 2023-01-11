@@ -39,7 +39,6 @@ extract($data, $data2);
                         </div>
                         <div class="col-12 col-md-6">
                             <h2><?= $description; ?></h2>
-                            <p>Prix : <?= $prix; ?> euros.</p>
                             <p>Dimensions : <?= $dimensions; ?> cm</p>
                             <p>Poids : <?= $poids; ?> kg</p>
                             <p>Temps de conception : <?= $temps_conception; ?> heures</p>
@@ -50,7 +49,7 @@ extract($data, $data2);
                 <div class="card-footer">
                     <div class="row">
                         <div class="col">
-                            <a href="/standard" class="btn btn-outline-primary float-end mx-2">Retourner à la liste</a>
+                            <a href="/mesure" class="btn btn-outline-primary float-end mx-2">Retourner à la liste</a>
                         </div>
                     </div>
                 </div>

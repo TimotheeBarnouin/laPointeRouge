@@ -56,7 +56,25 @@ class Produits extends Controller
         return $this->render('layouts.default', 'templates.mesure', $mesure);
     }
 
-    //fonction detail standard
+    // Affiche le détail d'un produit standard
+    public function details($uid_standard): array|string
+    {
+        // Requete de type SELECT * sur la table produit_standard à partir de l'uid_standard.
+        $sql = 'SELECT * FROM `produit_standard` WHERE `uid_standard`=' . $uid_standard;
+        $detail = PdoDb::getInstance()->requete($sql, 'fetch');
 
-    //fonction detail sur-mesure
+        // Transmission ddu produit à la vue (Layout + détails).
+        return $this->render('layouts.default', 'templates.detail', $detail);
+    }
+
+    // Affiche le détail d'un produit sur mesure
+    public function details2($uid_sur_mesure): array|string
+    {
+        // Requete sur la table produit_sur_mesure
+        $sql2 = 'SELECT * FROM `produit_sur_mesure` WHERE `uid_sur_mesure`=' . $uid_sur_mesure;
+        $detail2 = PdoDb::getInstance()->requete($sql2, 'fetch');
+
+        // Transmission ddu produit à la vue (Layout + détails).
+        return $this->render('layouts.default', 'templates.detail2', $detail2);
+    }
 }

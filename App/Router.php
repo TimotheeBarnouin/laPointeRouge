@@ -91,10 +91,17 @@ if (count($_GP) > 0) {
         exit();
     }
 
-    if (isset($_GP['annonceid'])) {
-        $annonceId = $_GP['annonceid'];
-        $annonces = new Annonces;
-        echo $annonces->details($annonceId);
+    if (isset($_GP['standardid'])) {
+        $standardId = $_GP['standardid'];
+        $standard = new Produits;
+        echo $standard->details($standardId);
+        exit();
+    }
+
+    if (isset($_GP['mesureid'])) {
+        $mesureId = $_GP['mesureid'];
+        $mesure = new Produits;
+        echo $mesure->details2($mesureId);
         exit();
     }
 

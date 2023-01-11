@@ -20,7 +20,7 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
     <div class="row">
         <div class="col mt-3 mb-3">
             <h1 class="d-inline">Nos réalisations</h1>
-            &nbsp;::&nbsp;
+            <br>
             <h3 class="d-inline">Vous trouverez votre bonheur</h3>
         </div>
     </div>
@@ -46,8 +46,8 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
                         <p class="card-text"><?= $dimensions; ?> cm</p>
                         <p class="card-text"><?= $metal; ?></p>
                         <p class="card-text"><?= $poids; ?> kg</p>
-                        <p class="card-text"><?= $temps_conception; ?> heures</p>
-                        <!--<a href="/annonce/<?= $uid_annonce; ?>" class="btn btn-details btn-outline-primary">Détails</a>-->
+                        <p class="card-text"><?= $temps_conception; ?> heures</p><br>
+                        <a href="/standard/<?= $uid_standard; ?>" class="btn btn-details btn-outline-primary">Détail</a>
                     </div>
                 </div>
             <?php

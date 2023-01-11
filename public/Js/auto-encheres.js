@@ -16,7 +16,7 @@ let ValideEmail = (email) => {
 /************************************************************/
 let setApparence = (field) => {
     // Pour les champs obligatoires, on cible seulement les champs qui ont la propriété 'required' positionnée.
-    if(field.hasAttribute('required')) {
+    if (field.hasAttribute('required')) {
         // Si le champ est rempli
         if (field.value.trim().length) {
             field.classList.remove('is-invalid');
@@ -28,7 +28,7 @@ let setApparence = (field) => {
         }
     }
     // Champs email, on cible seulement les champs qui ont l'attribut type="email" positionné.
-    if(field.hasAttribute('type') && field.getAttribute('type') === 'email') {
+    if (field.hasAttribute('type') && field.getAttribute('type') === 'email') {
         // S'il s'agit d'une adresse email valide.
         if (field.value.trim().length && ValideEmail(field.value)) {
             field.classList.remove('is-invalid');
@@ -44,10 +44,6 @@ let setApparence = (field) => {
 window.onload = () => {
     /*** Gestion du retour en haut de page ***/
     d.querySelector('#to-top').addEventListener('click', () => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-
-    d.querySelector('#search-btn').addEventListener('click', () => {
-       alert('Cherche toujours');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
