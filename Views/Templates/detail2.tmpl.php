@@ -24,9 +24,9 @@ extract($data, $data2);
 ?>
 
 <div class="container">
-    <div class="row">
+    <div class="row text-primary">
         <div class="col mt-3 mb-3">
-            <div class="card">
+            <div class="card bg-secondary">
                 <div class="card-header text-center">
                     <h1 class="d-inline display-4"><?= $nom; ?></h1>
                 </div>

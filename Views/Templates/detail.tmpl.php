@@ -24,17 +24,16 @@ extract($data, $data2);
 ?>
 
 <div class="container">
-    <div class="row">
+    <div class="row text-primary">
         <div class="col mt-3 mb-3">
-            <div class="card">
+            <div class="card bg-secondary">
                 <div class="card-header text-center">
-                    <h1 class="d-inline display-4"><?= $nom; ?></h1>
+                    <h1 class="d-inline display-4 text-primary"><?= $nom; ?></h1>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-md-6">
-                            <a class="link" data-fancybox="<?= $nom; ?>" data-src="/Imgs/<?= $photo; ?>" data-caption="<strong><?= $nom; ?></strong> | <?= $description; ?>">
-                                <img src="/Imgs/<?= $photo; ?>" class="w-75 rounded" alt="<?= $nom; ?>">
+                            <img src="/Imgs/<?= $photo; ?>" class="w-75 rounded" alt="<?= $nom; ?>">
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
@@ -43,8 +42,17 @@ extract($data, $data2);
                             <p>Dimensions : <?= $dimensions; ?> cm</p>
                             <p>Poids : <?= $poids; ?> kg</p>
                             <p>Temps de conception : <?= $temps_conception; ?> heures</p>
-
+                            <br>
+                            <div class="text-center">
+                                <form>
+                                    <input type="hidden" name="client_id" value="<?= $_SESSION['user']['userid'] ?>">
+                                    <input type="hidden" name="produit_id" value="<?= $uid_standard ?>">
+                                    <input type="submit" class="btn btn-outline-primary" value="Ajouter au panier">
+                                </form>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
                 <div class="card-footer">
