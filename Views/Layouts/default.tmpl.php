@@ -65,6 +65,7 @@ $uriSegments = Outils::getUriSegments();
     <?php
     }
     ?>
+
     <?php
     if ($uriSegments[1] === 'commande') {
     ?>
@@ -72,6 +73,7 @@ $uriSegments = Outils::getUriSegments();
     <?php
     }
     ?>
+
 </body>
 
 </html>

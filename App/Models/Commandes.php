@@ -20,7 +20,7 @@ class CommandesModel
         $this->prenom = $commandeInfos['prenom'];
         $this->tel = $commandeInfos['tel'];
         $this->email = $commandeInfos['email'];
-        $this->description = ($commandeInfos['description']);
+        $this->description = $commandeInfos['description'];
         return $this;
     }
 }

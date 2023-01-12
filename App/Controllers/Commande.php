@@ -53,6 +53,6 @@ class Commande extends Controller
                 $commandeCreated = true;
             }
         }
-        return json_encode(['usercreated' => $commandeCreated, 'newUserId' => $newCommandeId]);
+        return json_encode(['commandecreated' => $commandeCreated, 'newCommandeId' => $newCommandeId]);
     }
 }

@@ -60,7 +60,7 @@ window.onload = () => {
                         formError.push('tel');
                     }
                     break;
-                case 'password':
+                case 'description':
                     password = field[1];
                     if (!field[1].trim().length) {
                         formError.push('description');

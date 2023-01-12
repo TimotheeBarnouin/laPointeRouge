@@ -30,14 +30,10 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
  */
 ?>
 
-<div class="container text-center">
-    <div class="row">
+<div class="container">
+    <div>
         <!-- forgeron photo + texte -->
-        <div class="col-sm-8">
-            <div class="card-body bg-secondary">
-                <img class="img" src="Imgs/forge.jpg">
-            </div>
-        </div>
+        <img class="img" src="Imgs/forge.jpg">
     </div>
     <div class="row"><!-- liste verticale produit sur mesure photo uniquement, 2 -->
         <?php foreach ($data2 as $rand2) {
