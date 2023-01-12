@@ -39,6 +39,13 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
         </div>
         <div class="col-4">
             <h1 class="display-1 text-center">La Pointe Rouge</h1>
+            <p class="lead">
+                Bienvenue sur notre site de commerce artisanal spécialisé dans la forge d'armes en acier. Nous sommes des artisans forgerons expérimentés et nous mettons notre savoir-faire au service de la création d'armes de qualité à la main.
+            </p>
+            <p>
+                Notre spécialité est la forge d'armes en acier, telles que des épées, des lances, des haches et des couteaux. Nous utilisons des matériaux de qualité supérieure pour garantir la solidité et la durabilité de nos produits. Nous sommes également spécialisés dans la réparation et la restauration d'armes anciennes en acier.
+            </p>
+            <a href="/commande" class="btn btn-outline-primary">Contactez-nous !</a>
         </div>
     </div>
     <div>

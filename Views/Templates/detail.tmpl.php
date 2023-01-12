@@ -51,8 +51,6 @@ extract($data, $data2);
                                 </form>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="card-footer">

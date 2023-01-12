@@ -35,14 +35,14 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
                     <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $nom; ?>">
                 </a>
                 <div class="card-body text-center">
-                    <h5 class="card-title text-primary"><?= $nom; ?>
-                        <p class="card-text text-primary"><?= $description; ?></p>
-                        <p class="card-text text-primary">Dimensions : <?= $dimensions; ?> cm
-                            <br>Métal : <?= $metal; ?>
-                            <br>Poids : <?= $poids; ?> kg
-                            <br>Conception : <?= $temps_conception; ?> heures
-                        </p>
-                        <a href="/mesure/<?= $uid_sur_mesure; ?>" class="btn btn-outline-primary card-button">Détail</a>
+                    <h4 class="card-title text-primary"><?= $nom; ?></h4>
+                    <p class="card-text text-primary"><?= $description; ?></p>
+                    <p class="card-text text-primary">Dimensions : <?= $dimensions; ?> cm
+                        <br>Métal : <?= $metal; ?>
+                        <br>Poids : <?= $poids; ?> kg
+                        <br>Conception : <?= $temps_conception; ?> heures
+                    </p>
+                    <a href="/mesure/<?= $uid_sur_mesure; ?>" class="btn btn-outline-primary card-button">Détail</a>
                 </div>
             </div>
         </div>
