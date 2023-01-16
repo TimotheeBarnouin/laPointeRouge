@@ -36,5 +36,8 @@ class Paniers extends Controller
         //insertion dans la BDD
         $sql = "INSERT INTO panier (uid_client, uid_standard) VALUE ('$client', '$produit')";
         $insertion = PdoDb::getInstance()->requete($sql);
+
+        //redirection au panier pour voir l'achat
+        return $this->redirect('/panier');
     }
 }

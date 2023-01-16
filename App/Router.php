@@ -53,7 +53,7 @@ if (count($_GP) > 0) {
     if (isset($_GP['achat']) && $_GP['achat'] === '1') {
         $achat = new Paniers;
         echo $achat->panierAchat($_GP);
-        $this->redirect('/panier');
+        exit();
     }
 
     if (isset($_GP['error'])) {
