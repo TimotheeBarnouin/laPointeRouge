@@ -58,10 +58,13 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand2['nom']; ?>" data-src="/Imgs/<?= $rand2['photo']; ?>" data-caption="<strong><?= $rand2['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand2['photo']; ?>" class="card-img-top" alt="<?= $rand2['nom']; ?>">
-                        <div class="card-body">
-                            <h5 class="card-title text-center"><?= $rand2['nom']; ?></h5>
-                        </div>
                     </a>
+                    <div class="card-body">
+                        <a href="/mesure/<?= $rand2['uid_sur_mesure']; ?>">
+                            <h5 class="card-title text-center"><?= $rand2['nom']; ?></h5>
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
@@ -79,10 +82,13 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand1['photo']; ?>" class="card-img-top" alt="<?= $rand1['nom']; ?>">
-                        <div class="card-body">
-                            <h5 class="card-title text-center"><?= $rand1['nom']; ?></h5>
-                        </div>
                     </a>
+                    <div class="card-body">
+                        <a href="/standard/<?= $rand1['uid_standard']; ?>">
+                            <h5 class="card-title text-center"><?= $rand1['nom']; ?></h5>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         <?php

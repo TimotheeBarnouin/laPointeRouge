@@ -50,7 +50,10 @@ extract($data, $data2);
                                 <div class="text-center">
                                     <form action="/" method="POST">
                                         <input type="hidden" name="client_id" value="<?= $_SESSION['user']['userid'] ?>">
+
+                                        <!-- champs servant à identifier le post dans le router -->
                                         <input type="hidden" name="achat" value="1">
+
                                         <input type="hidden" name="produit_id" value="<?= $uid_standard ?>">
                                         <input type="submit" class="btn btn-outline-primary" value="Ajouter au panier">
                                     </form>

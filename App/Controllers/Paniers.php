@@ -23,8 +23,15 @@ class Paniers extends Controller
         $user_id = $_SESSION['user']['userid'];
         $sql = "SELECT * FROM client WHERE uid_client = $user_id";
         $user = PdoDb::getInstance()->requete($sql);
+
+        //récupération des achats dans la table panier
+        $sql2 = "SELECT * FROM produit_standard
+        INNER JOIN panier ON produit_standard.uid_standard = panier.uid_standard
+        WHERE panier.uid_client = '$user_id'";
+        $achat = PdoDb::getInstance()->requete($sql2);
+
         //classe vide pour appeler le template pré-construit
-        return $this->render('layouts.default', 'templates.panier', $user);
+        return $this->render('layouts.default', 'templates.panier', $user, $achat);
     }
 
     public function panierAchat()
