@@ -32,11 +32,11 @@ extract($data, $data2);
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-5">
                             <img src="/Imgs/<?= $photo; ?>" class="w-75 rounded" alt="<?= $nom; ?>">
                             </a>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-5">
                             <h2><?= $description; ?></h2>
                             <p>Prix : <?= $prix; ?> euros.</p>
                             <p>Dimensions : <?= $dimensions; ?> cm</p>
@@ -66,7 +66,7 @@ extract($data, $data2);
                 </div>
                 <div class="card-footer">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12 col-md-2">
                             <a href="/standard" class="btn btn-outline-primary float-end mx-2">Retourner à la liste</a>
                         </div>
                     </div>

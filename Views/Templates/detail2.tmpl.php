@@ -32,12 +32,12 @@ extract($data, $data2);
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-5">
                             <a class="link" data-fancybox="<?= $nom; ?>" data-src="/Imgs/<?= $photo; ?>" data-caption="<strong><?= $nom; ?></strong> | <?= $description; ?>">
                                 <img src="/Imgs/<?= $photo; ?>" class="w-75 rounded" alt="<?= $nom; ?>">
                             </a>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-5">
                             <h2><?= $description; ?></h2>
                             <p>Dimensions : <?= $dimensions; ?> cm</p>
                             <p>Poids : <?= $poids; ?> kg</p>
@@ -48,8 +48,8 @@ extract($data, $data2);
                 </div>
                 <div class="card-footer">
                     <div class="row">
-                        <div class="col">
-                            <a href="/mesure" class="btn btn-outline-primary float-end mx-2">Retourner à la liste</a>
+                        <div class="col col-12 col-md-2">
+                            <a href="/mesure" class="btn btn-outline-primary">Retourner à la liste</a>
                         </div>
                     </div>
                 </div>

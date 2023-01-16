@@ -88,14 +88,62 @@ class PdoDb
         return $prepared->execute();
     }
 
-    // Met à jour une donnée dans une table
-    public function maj($table, $data)
+    // Met à jour une donnée dans une table; $where spécifie les lignes à mettre à jour
+    public function update($table, $data, $where): bool
     {
+        // On convertit l'objet en tableau
+        $dataTab = get_object_vars($data);
+
+        // On récupère les nom de champs dans les clés du tableau
+        $fields = array_keys($dataTab);
+        // On récupère les valeurs
+        $values = array_values($dataTab);
+
+        // On compte le nombre de champ
+        $values_count = count($values);
+
+        // On construit la chaine des paramètres ':p0,:p1,:p2,...'
+        $params = [];
+        foreach ($values as $key => $value) {
+            array_push($params, $fields[$key] . '= :p' . $key);
+        }
+        $params_str = implode(',', $params);
+
+        // On prépare la requête
+        $reqUpdate = 'UPDATE ' . $table . ' SET ' . $params_str . ' WHERE ' . $where;
+        $prepared = $this->conx->prepare($reqUpdate);
+
+        // On injecte dans la requête les données avec leur type.
+        for ($i = 0; $i < $values_count; $i++) {
+            $type = match (gettype($values[$i])) {
+                'NULL' => PDO::PARAM_NULL,
+                'integer' => PDO::PARAM_INT,
+                'boolean' => PDO::PARAM_BOOL,
+                default => PDO::PARAM_STR,
+            };
+            // On lie une valeur au paramètre :pX
+            $prepared->bindParam(':p' . $i, $values[$i], $type);
+        }
+
+        // On exécute la requête.
+        // Retourne TRUE en cas de succès ou FALSE en cas d'échec.
+        return $prepared->execute();
     }
 
     // Retourne l'id de la dernière insertion par auto-incrément dans la base de données
     public function dernierIndex(): string
     {
         return $this->conx->lastInsertId();
+    }
+
+    public function delete($table, $where): bool
+    {
+        // On prépare la requête
+        $reqDelete = 'DELETE FROM ' . $table . ' WHERE ' . $where;
+        $prepared = $this->conx->prepare($reqDelete);
+
+        // On exécute la requête.
+        // Retourne TRUE en cas de succès ou FALSE en cas d'échec.
+        return $prepared->execute();
     }
 }
