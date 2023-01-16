@@ -16,12 +16,12 @@ use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 class Produits extends Controller
 {
     /*
-    * Affiche 5 produits standards au hasard et affiche 3 produits sur mesure au hasard.
+    * Affiche 8 produits standards au hasard et affiche 3 produits sur mesure au hasard.
     */
     public function list_rand(): array|string
     {
         // Requete de type SELECT * sur la table produit_standard.
-        $sql = 'SELECT * FROM `produit_standard` ORDER BY RAND() LIMIT 6';
+        $sql = 'SELECT * FROM `produit_standard` ORDER BY RAND() LIMIT 8';
         $sql1 = 'SELECT * FROM `produit_sur_mesure` ORDER BY RAND() LIMIT 3';
         // Exécution de la requête
         $Rand1 = PdoDb::getInstance()->requete($sql);

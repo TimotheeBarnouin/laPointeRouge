@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6 mt-3 mb-3 mx-auto">
-            <h1 class="text-white">Contactez-nous pour proposer votre projet</h1>
+            <h1 class="display-4 text-center">Contactez-nous pour proposer votre projet</h1>
         </div>
     </div>
     <div class="row">

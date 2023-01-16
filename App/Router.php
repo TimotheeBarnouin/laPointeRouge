@@ -123,24 +123,6 @@ if (count($_GP) > 0) {
         echo $mesure->details2($mesureId);
         exit();
     }
-
-    if (isset($_GP['enchereannonceid'])) {
-        $annonceId = $_GP['enchereannonceid'];
-        // Insertion d'une nouvelle enchère si on est connecté
-        if (isset($_GP['montant']) && isset($_SESSION['user'])) {
-            $enchere = new Encheres;
-            $setEnchere = $enchere->setEnchere($_GP);
-            if ($setEnchere['enchereCreated'] === true) {
-                header('location:/annonce/' . $annonceId);
-            }
-
-            //Gestion d'une enchère
-        } else {
-            $annonces = new Annonces();
-            echo $annonces->enchere($annonceId);
-        }
-        exit();
-    }
 }
 
 // On récupère le flux JSON posté.

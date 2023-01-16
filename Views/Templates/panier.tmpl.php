@@ -6,14 +6,14 @@ foreach ($data as $info) {
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h2>Vos informations</h2>
-                <p>nom :<br>
+                <h2 class="display-4 py-4">Vos informations</h2>
+                <p class="py-2"><strong>Nom :</strong><br>
                     <?= $nom ?></p>
-                <p>prénom :<br>
+                <p class="py-2"><strong>Prénom :</strong><br>
                     <?= $prenom ?></p>
-                <p>email :<br>
+                <p class="py-2"><strong>Email :</strong><br>
                     <?= $email ?></p>
-                <p>téléphone :<br>
+                <p class="py-2"><strong>Téléphone :</strong><br>
                     <?= $tel ?></p>
             </div>
         <?php
@@ -21,7 +21,7 @@ foreach ($data as $info) {
         ?>
 
         <div class="col-6">
-            <h2>Vos commandes</h2>
+            <h2 class="display-4 py-4">Vos commandes</h2>
             <?php
 
             //initialisation de la variable pour le montant total
@@ -33,7 +33,7 @@ foreach ($data as $info) {
                 // Ajout du prix à la variable total
                 $total += $prix;
             ?>
-                <div class="row">
+                <div class="row py-2">
                     <!-- lien vers la page détail du produit -->
                     <a href="/standard/<?= $uid_standard ?>">
                         <h4><?= $nom ?></h4>
@@ -44,8 +44,8 @@ foreach ($data as $info) {
             }
             ?>
             <div>
-                <p>Montant final : <?= $total ?></p>
-                <input type="button" class="btn btn-outline-primary" value="Payez le total : <?= $total ?> euros">
+                <p class="display-6 py-3">Montant final : <?= $total ?> euros</p>
+                <input type="button" class="btn btn-outline-primary my-3 py-3" value="Payez le total : <?= $total ?> euros">
             </div>
         </div>
         </div>

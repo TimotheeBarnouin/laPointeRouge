@@ -49,7 +49,7 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
         </div>
     </div>
     <div>
-        <h2 class="display-2 text-center">Vos demandes réalisées</h2>
+        <h2 class="display-2 text-center  py-3 my-3">Vos demandes réalisées</h2>
     </div>
     <div class="row">
         <?php foreach ($data2 as $rand2) {
@@ -73,12 +73,12 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
         ?>
     </div>
     <div>
-        <h2 class="display-2 text-center">Des exemples de nos productions</h2>
+        <h2 class="display-2 text-center py-3 my-3">Des exemples de nos productions</h2>
     </div>
     <div class="row">
         <?php foreach ($data as $rand1) {
         ?>
-            <div class="col-4"><!-- liste verticale produit standard image + nom + tarif -->
+            <div class="col-3 py-3"><!-- liste verticale produit standard image + nom + tarif -->
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand1['photo']; ?>" class="card-img-top" alt="<?= $rand1['nom']; ?>">
