@@ -26,4 +26,10 @@ class Controller
         ob_end_clean();
         return str_replace('{pageContent}', $view_content, $layout);
     }
+
+    // foction générale de redirection
+    public function redirect($location)
+    {
+        header('Location:' . $location);
+    }
 }

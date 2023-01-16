@@ -23,11 +23,11 @@ window.onload = () => {
         let commandedata = new FormData(commandeForm);
 
         // On déclare un tableau qui stoquera le nom des champs en erreur.
-        let formError1 = [];
+        let formError = [];
 
         // On stockera dans ces variables certaines informations de l'utilisateur
         // pour une utilisation ultérieure.
-        let nom, prenom;
+        let nom, prenom, email, tel, description;
 
         // On valide le formulaire
         // On travaille directement avec une boucle for of
@@ -61,7 +61,7 @@ window.onload = () => {
                     }
                     break;
                 case 'description':
-                    password = field[1];
+                    description = field[1];
                     if (!field[1].trim().length) {
                         formError.push('description');
                     }
@@ -69,9 +69,9 @@ window.onload = () => {
             }
         }
 
-        // Si le tableau formError1 est vide, il n'y a pas d'erreur
+        // Si le tableau formError est vide, il n'y a pas d'erreur
         // On effectue la requête fetch
-        if (!formError1.length) {
+        if (!formError.length) {
 
             // On soumet le formulaire via l'API fetch en méthod POST
             // On transmet l'objet FormData contactdata
@@ -86,7 +86,7 @@ window.onload = () => {
                 // Puis on réceptionne l'objet converti dans la variable data
             }).then(data => {
                 // On s'assure que la réponse a bien dans sa structure l'objet data.usercreated à vrai
-                if (data.usercreated === true) {
+                if (data.commandecreated === true) {
                     // On masque le formulaire d'enregistrement
                     commandeForm.classList.add('d-none');
                     let commandeZone = d.querySelector('#commandeZone');
@@ -102,7 +102,7 @@ window.onload = () => {
         } else {
 
             // On applique la classe is-invalid aux champs en erreur
-            for (let error of formError1) {
+            for (let error of formError) {
                 d.querySelector(`#${error}`).classList.add('is-invalid');
             }
             // On enlève le focus sur le bouton de soumission du formulaire

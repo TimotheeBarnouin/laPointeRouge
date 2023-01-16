@@ -17,7 +17,7 @@ class Paniers extends Controller
     /*
     * Renvoi page panier.
     */
-    public function panier(): array|string
+    public function panierDisplay(): array|string
     {
         //on récupère l'id client dans la session
         $user_id = $_SESSION['user']['userid'];
@@ -25,5 +25,10 @@ class Paniers extends Controller
         $user = PdoDb::getInstance()->requete($sql);
         //classe vide pour appeler le template pré-construit
         return $this->render('layouts.default', 'templates.panier', $user);
+    }
+
+    public function panierAchat()
+    {
+        $achat = $_POST;
     }
 }

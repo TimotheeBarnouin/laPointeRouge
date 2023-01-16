@@ -50,6 +50,12 @@ if (count($_GP) > 0) {
         exit();
     }
 
+    if (isset($_GP['achat']) && $_GP['achat'] === '1') {
+        $achat = new Commande;
+        echo $achat->registerCommande($_GP);
+        $this->redirect('/panier');
+    }
+
     if (isset($_GP['error'])) {
         $errorNum = $_GP['error'];
         $error = new Errors;
@@ -100,7 +106,7 @@ if (count($_GP) > 0) {
 
     if (isset($_GP['panier'])) {
         $panier = new Paniers;
-        echo $panier->panier();
+        echo $panier->panierDisplay();
         exit();
     }
 

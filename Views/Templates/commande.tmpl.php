@@ -13,7 +13,7 @@
                             <label for="nom" class="form-label">Nom :</label>
                             <input type="text" class="form-control" name="nom" id="nom" required autofocus>
                             <div class="invalid-feedback">Veuillez saisir un nom !</div>
-                            <input type="hidden" name="register" value="1">
+                            <input type="hidden" name="commande" value="1">
                         </div>
                         <div class="form-group has-validation mb-3">
                             <label for="prenom" class="form-label">Prénom :</label>
@@ -31,7 +31,9 @@
                             <div class="invalid-feedback">Veuillez saisir un numéro !</div>
                         </div>
                         <div class="form-group has-validation mb-3">
-                            <textarea for="description" class="form-control" name="description" id="description" required placeholder="Décrivez votre projet"></textarea>
+                            <label for="description" class="form-label">Décrivez votre projet :</label>
+                            <textarea class="form-control" name="description" id="description" required placeholder="Décrivez votre projet"></textarea>
+                            <div class="invalid-feedback">Veuillez saisir la description de votre projet !</div>
                         </div>
                         <label for="escobar"></label>
                         <input type="text" id="escobar" name="escobar">

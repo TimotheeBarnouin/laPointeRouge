@@ -43,13 +43,21 @@ extract($data, $data2);
                             <p>Poids : <?= $poids; ?> kg</p>
                             <p>Temps de conception : <?= $temps_conception; ?> heures</p>
                             <br>
-                            <div class="text-center">
-                                <form>
-                                    <input type="hidden" name="client_id" value="<?= $_SESSION['user']['userid'] ?>">
-                                    <input type="hidden" name="produit_id" value="<?= $uid_standard ?>">
-                                    <input type="submit" class="btn btn-outline-primary" value="Ajouter au panier">
-                                </form>
-                            </div>
+                            <?php
+                            //On détecte l'ouverture d'une session utilisateur, obligatoire pour proposer l'achat
+                            if (isset($_SESSION['user'])) {
+                            ?>
+                                <div class="text-center">
+                                    <form action="/" method="POST">
+                                        <input type="hidden" name="client_id" value="<?= $_SESSION['user']['userid'] ?>">
+                                        <input type="hidden" name="achat" value="1">
+                                        <input type="hidden" name="produit_id" value="<?= $uid_standard ?>">
+                                        <input type="submit" class="btn btn-outline-primary" value="Ajouter au panier">
+                                    </form>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
