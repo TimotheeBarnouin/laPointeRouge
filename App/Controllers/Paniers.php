@@ -29,6 +29,12 @@ class Paniers extends Controller
 
     public function panierAchat()
     {
-        $achat = $_POST;
+        //récupération des éléments id client et id produit
+        $client = $_POST['client_id'];
+        $produit = $_POST['produit_id'];
+
+        //insertion dans la BDD
+        $sql = "INSERT INTO panier (uid_client, uid_standard) VALUE ('$client', '$produit')";
+        $insertion = PdoDb::getInstance()->requete($sql);
     }
 }

@@ -51,8 +51,8 @@ if (count($_GP) > 0) {
     }
 
     if (isset($_GP['achat']) && $_GP['achat'] === '1') {
-        $achat = new Commande;
-        echo $achat->registerCommande($_GP);
+        $achat = new Paniers;
+        echo $achat->panierAchat($_GP);
         $this->redirect('/panier');
     }
 
