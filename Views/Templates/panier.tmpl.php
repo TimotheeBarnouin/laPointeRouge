@@ -46,6 +46,7 @@ foreach ($data as $info) {
             <div>
                 <p class="display-6 py-3">Montant final : <?= $total ?> euros</p>
                 <input type="button" class="btn btn-outline-primary my-3 py-3" value="Payez le total : <?= $total ?> euros">
+                <a href="/standard" class="btn btn-outline-primary my-3 py-3">Retournez aux produits</a>
             </div>
         </div>
         </div>

@@ -15,6 +15,7 @@ use LISENDER\LaPointeRouge\Controllers\Artisan;
 use LISENDER\LaPointeRouge\Controllers\Utilisateurs;
 use LISENDER\LaPointeRouge\Controllers\Errors;
 use LISENDER\LaPointeRouge\Controllers\Paniers;
+use LISENDER\LaPointeRouge\Utils\Database\PdoDb;
 use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 
 // On démarre le moteur de sessions PHP pour gérer les variables de $_SESSION.
@@ -83,11 +84,18 @@ if (count($_GP) > 0) {
     if (isset($_GP['adminlog']) && $_GP['adminlog'] === '1') {
         $adminlog = new Admin;
         $adminlog->login($_GP);
+        //si connected = true
         if ($adminlog->login($_GP)) {
             echo $adminlog->commDisplay();
         } else {
             Controller::redirect('/admin');
         }
+    }
+
+    if (isset($_GP['suppress']) && $_GP['suppress'] === '1') {
+        $supp = new Admin;
+        $supp->delete($_GP);
+        echo $supp->commDisplay();
     }
 
     if (isset($_GP['register'])) {

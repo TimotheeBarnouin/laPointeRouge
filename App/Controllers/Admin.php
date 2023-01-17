@@ -80,15 +80,29 @@ class Admin extends Controller
     public function commDisplay()
     {
         // Requete de type SELECT * sur la table panier.
-        $sql = 'SELECT panier.*, client.nom as client_nom, produit_standard.nom as produit_nom FROM panier
+        $sql = 'SELECT panier.*, client.nom as client_nom, produit_standard.nom as produit_nom, produit_standard.prix as produit_prix
+        FROM panier
         JOIN client ON panier.uid_client = client.uid_client
         JOIN produit_standard ON panier.uid_standard = produit_standard.uid_standard';
 
         // Exécution de la requête
-        $Rand1 = PdoDb::getInstance()->requete($sql);
+        $commandes = PdoDb::getInstance()->requete($sql);
 
 
         // Transmission des annonce à la vue (Layout + template).
-        return $this->render('layouts.default', 'templates.adminoffice', $Rand1);
+        return $this->render('layouts.default', 'templates.adminoffice', $commandes);
+    }
+
+    public function delete($id)
+    {
+        $commande = $id['commande'];
+        // On prépare la requête
+        $sql = 'DELETE FROM `panier` WHERE `uid_panier` = "' . $commande . '"';
+
+        // On exécute la requête.
+        $supprimer = PdoDb::getInstance()->requete($sql);
+
+        //vérification de la réussite de la requête
+        return $supprimer;
     }
 }

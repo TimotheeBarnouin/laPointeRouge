@@ -55,7 +55,7 @@ window.onload = () => {
                     }
                     break;
                 case 'tel':
-                    prenom = field[1];
+                    tel = field[1];
                     if (!field[1].trim().length) {
                         formError.push('tel');
                     }
