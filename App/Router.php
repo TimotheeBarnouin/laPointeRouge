@@ -84,9 +84,9 @@ if (count($_GP) > 0) {
         $adminlog = new Admin;
         $adminlog->login($_GP);
         if ($adminlog->login($_GP)) {
-            Controller::redirect('/adminoffice');
+            echo $adminlog->commDisplay();
         } else {
-            Controller::redirect('/');
+            Controller::redirect('/admin');
         }
     }
 

@@ -76,4 +76,19 @@ class Admin extends Controller
         // On redirige le visiteur vers la page d'accueil.
         header('location:/');
     }
+
+    public function commDisplay()
+    {
+        // Requete de type SELECT * sur la table panier.
+        $sql = 'SELECT panier.*, client.nom as client_nom, produit_standard.nom as produit_nom FROM panier
+        JOIN client ON panier.uid_client = client.uid_client
+        JOIN produit_standard ON panier.uid_standard = produit_standard.uid_standard';
+
+        // Exécution de la requête
+        $Rand1 = PdoDb::getInstance()->requete($sql);
+
+
+        // Transmission des annonce à la vue (Layout + template).
+        return $this->render('layouts.default', 'templates.adminoffice', $Rand1);
+    }
 }
