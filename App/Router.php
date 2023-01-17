@@ -82,8 +82,12 @@ if (count($_GP) > 0) {
 
     if (isset($_GP['adminlog']) && $_GP['adminlog'] === '1') {
         $adminlog = new Admin;
-        echo $adminlog->login($_GP);
-        return $this->redirect('/adminoffice');
+        $adminlog->login($_GP);
+        if ($adminlog->login($_GP)) {
+            Controller::redirect('/adminoffice');
+        } else {
+            Controller::redirect('/');
+        }
     }
 
     if (isset($_GP['register'])) {

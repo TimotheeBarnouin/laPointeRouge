@@ -63,7 +63,7 @@ class Admin extends Controller
                 $connected = false;
             }
         }
-        exit();
+        return $connected;
     }
 
     // Déconnecte l'utilisateur.

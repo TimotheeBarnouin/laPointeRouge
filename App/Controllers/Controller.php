@@ -28,7 +28,7 @@ class Controller
     }
 
     // foction générale de redirection
-    public function redirect($location)
+    public static function redirect($location)
     {
         header('Location:' . $location);
     }
