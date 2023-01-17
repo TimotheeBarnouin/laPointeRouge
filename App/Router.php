@@ -5,14 +5,12 @@
  * qui définissent la logique de l'application puis génèrerent les affichages.
  */
 
-
+use LISENDER\LaPointeRouge\Controllers\Admin;
 use LISENDER\LaPointeRouge\Controllers\Controller;
 use LISENDER\LaPointeRouge\Controllers\Produits;
 use LISENDER\LaPointeRouge\Controllers\Commande;
-use LISENDER\LaPointeRouge\Controllers\Encheres;
 use LISENDER\LaPointeRouge\Models\UtilisateursModel;
 use LISENDER\LaPointeRouge\Models\CommandesModel;
-use LISENDER\LaPointeRouge\Controllers\Annonces;
 use LISENDER\LaPointeRouge\Controllers\Artisan;
 use LISENDER\LaPointeRouge\Controllers\Utilisateurs;
 use LISENDER\LaPointeRouge\Controllers\Errors;
@@ -22,8 +20,10 @@ use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 // On démarre le moteur de sessions PHP pour gérer les variables de $_SESSION.
 session_start();
 
+
 // On crée une variable qui mixte $_POST et $_GET
 $_GP = array_merge($_POST, $_GET);
+
 
 /*
  * Gestion des appels avec AJAX fetch.
@@ -72,6 +72,18 @@ if (count($_GP) > 0) {
     if (isset($_GP['logout'])) {
         Utilisateurs::logout();
         exit();
+    }
+
+    if (isset($_GP['admin'])) {
+        $login = new Admin;
+        echo $login->authDisplay();
+        exit();
+    }
+
+    if (isset($_GP['adminlog']) && $_GP['adminlog'] === '1') {
+        $adminlog = new Admin;
+        echo $adminlog->login($_GP);
+        return $this->redirect('/adminoffice');
     }
 
     if (isset($_GP['register'])) {

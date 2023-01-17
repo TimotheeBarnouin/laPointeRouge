@@ -11,7 +11,7 @@ $conf = [
         /* Entrez ici vos identifiants pour se connecter à la base de données */
         'host'      => 'localhost',
         'database'  => 'lapointerouge',
-        'user'      => 'root',
-        'password' => 'timothee01'
+        'user'      => 'lapointe',
+        'password' => 'rouge'
     ]
 ];

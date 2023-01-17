@@ -6,6 +6,11 @@ SET time_zone = "+00:00";
 -- Base de données : `lapointerouge`
 --
 
+--
+-- Utilisateur pour la BDD : lapointe; rouge
+--
+CREATE USER 'lapointe'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT USAGE ON *.* TO 'lapointe'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `lapointerouge`.* TO 'lapointe'@'%';
+
 -- --------------------------------------------------------
 
 --
@@ -103,12 +108,6 @@ CREATE TABLE `client` (
   `password` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Déchargement des données de la table `client`
---
-
-INSERT INTO `client` (`uid_client`, `nom`, `prenom`, `email`, `password`) VALUES
-(), ;
 
 -- --------------------------------------------------------
 
@@ -123,6 +122,21 @@ CREATE TABLE `panier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `uid_admin` int UNSIGNED NOT NULL,
+  `login` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `admin`
+--
+insert INTO`admin` (`login`, `password`) VALUES ('admin', MD5(AES_ENCRYPT('test','set')));
+
+--
 -- Index pour la table `produit_standard`
 --
 ALTER TABLE `produit_standard`
@@ -134,11 +148,13 @@ ALTER TABLE `produit_standard`
 ALTER TABLE `produit_sur_mesure`
   ADD PRIMARY KEY (`uid_sur_mesure`);
 
+--
 -- Index pour la table `client`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`uid_client`);
 
+--
 -- Index pour la table `commande_sur_mesure`
 --
 ALTER TABLE `commande_sur_mesure`
@@ -149,7 +165,14 @@ ALTER TABLE `commande_sur_mesure`
 --
 ALTER TABLE `panier`
   ADD PRIMARY KEY (`uid_panier`);
-  
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`uid_admin`);
+
+
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
@@ -172,7 +195,7 @@ ALTER TABLE `commande_sur_mesure`
   MODIFY `uid_commande` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
   
 --
--- AUTO_INCREMENT pour la table `utilisateurs`
+-- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
   MODIFY `uid_client` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
@@ -182,6 +205,14 @@ ALTER TABLE `client`
 --
 ALTER TABLE `panier`
   MODIFY `uid_panier` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+--
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `uid_admin` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
 
 
 ALTER TABLE `panier`

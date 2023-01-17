@@ -57,4 +57,6 @@ RewriteRule ^mesure$ ./?mesure [L,NC]
 RewriteRule ^panier$ ./?panier [L,NC]
 RewriteRule ^standard/([0-9]+)$ ./?standardid=$1 [L,NC]
 RewriteRule ^mesure/([0-9]+)$ ./?mesureid=$1 [L,NC]
+RewriteRule ^admin$ ./?admin [L,NC]
+RewriteRule ^adminoffice$ ./?adminoffice [L,NC]
 
