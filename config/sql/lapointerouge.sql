@@ -7,7 +7,8 @@ SET time_zone = "+00:00";
 --
 
 --
--- Utilisateur pour la BDD : lapointe; rouge
+-- Utilisateur pour la BDD : lapointe; mdp: rouge
+-- Dispose de tout les droits uniquement sur cette BDD
 --
 CREATE USER 'lapointe'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT USAGE ON *.* TO 'lapointe'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `lapointerouge`.* TO 'lapointe'@'%';
 
@@ -143,7 +144,7 @@ ALTER TABLE `produit_standard`
   ADD PRIMARY KEY (`uid_standard`);
 
 --
--- Index pour la table `produit_standard`
+-- Index pour la table `produit_sur_mesure`
 --
 ALTER TABLE `produit_sur_mesure`
   ADD PRIMARY KEY (`uid_sur_mesure`);
