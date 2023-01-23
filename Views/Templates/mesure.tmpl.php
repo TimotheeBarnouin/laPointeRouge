@@ -29,7 +29,7 @@ use LISENDER\LaPointeRouge\Utils\Php\Outils;
         //on utilise extract pour simplifier l'appel aux variables d'une annonce.
         extract($produit);
     ?>
-        <div class="col-3">
+        <div class="col-md-3">
             <div class="card grid-item bg-secondary <?= Outils::sanitizeName($nom); ?>">
                 <a class="link" data-fancybox="<?= $nom; ?>" data-src="/Imgs/<?= $photo; ?>" data-caption="<strong><?= $nom; ?></strong> | <?= $description; ?>">
                     <img src="/Imgs/<?= $photo; ?>" class="card-img-top" alt="<?= $nom; ?>">

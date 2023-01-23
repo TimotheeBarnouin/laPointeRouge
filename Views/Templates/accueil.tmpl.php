@@ -32,12 +32,12 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8">
+        <div class="col-md-8">
             <div class="card">
                 <img src="Imgs/forge.jpg" class="card-img-top">
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             <h1 class="display-1 text-center">La Pointe Rouge</h1>
             <p class="lead">
                 Bienvenue sur notre site de commerce artisanal spécialisé dans la forge d'armes en acier. Nous sommes des artisans forgerons expérimentés et nous mettons notre savoir-faire au service de la création d'armes de qualité à la main.
@@ -54,7 +54,7 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
     <div class="row">
         <?php foreach ($data2 as $rand2) {
         ?>
-            <div class="col-4"><!-- liste verticale produit standard image + nom + tarif -->
+            <div class="col-md-4"><!-- liste verticale produit standard image + nom + tarif -->
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand2['nom']; ?>" data-src="/Imgs/<?= $rand2['photo']; ?>" data-caption="<strong><?= $rand2['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand2['photo']; ?>" class="card-img-top" alt="<?= $rand2['nom']; ?>">
@@ -78,7 +78,7 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
     <div class="row">
         <?php foreach ($data as $rand1) {
         ?>
-            <div class="col-3 py-3"><!-- liste verticale produit standard image + nom + tarif -->
+            <div class="col-md-3 py-3"><!-- liste verticale produit standard image + nom + tarif -->
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand1['photo']; ?>" class="card-img-top" alt="<?= $rand1['nom']; ?>">
