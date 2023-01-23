@@ -9,7 +9,7 @@ use LISENDER\LaPointeRouge\Utils\Debug\dBug;
 use LISENDER\LaPointeRouge\Utils\Php\Outils;
 
 /*
- *  Classe de gestion des utilisateurs étendue depuis la classe Controller.
+ *  Classe de gestion de l'admin étendue depuis la classe Controller.
  */
 
 
@@ -24,7 +24,7 @@ class Admin extends Controller
     }
 
     /*
-    * Authentifie un utilisateur
+    * Authentifie un admin
     */
     public function login($credentials): bool|string
     {

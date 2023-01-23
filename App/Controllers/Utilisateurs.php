@@ -35,7 +35,7 @@ class Utilisateurs extends Controller
     */
     public function login($credentials): bool|string
     {
-        // On récupère les données du formualire.
+        // On récupère les données du formulaire.
         $escobar = $credentials['escobar'];
         $email = $credentials['email'];
         $password = $credentials['password'];

@@ -1,4 +1,4 @@
-<footer id="footer" class="p-2 text" style="background: #910000">
+<footer id="footer" class="p-2 text-primary" style="background: #910000">
     <div class="container text-center">
         <div class="row">
             <div class="col-11">
