@@ -20,7 +20,8 @@ class UtilisateursModel
         $this->prenom = $userInfos['prenom'];
         $this->tel = $userInfos['tel'];
         $this->email = $userInfos['email'];
-        $this->password = md5($userInfos['password']); //changer avec password_hash
+        $this->password = md5($userInfos['password']);
+        // $this->password = password_hash($userInfos['password'], PASSWORD_DEFAULT);
         return $this;
     }
 }

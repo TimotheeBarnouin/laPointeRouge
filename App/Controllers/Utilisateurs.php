@@ -51,6 +51,23 @@ class Utilisateurs extends Controller
             // On applique à la clause WHERE la condition d'égalité du courriel et du mot de passe haché MD5.
             $sql = 'SELECT * FROM `client` WHERE `email`="' . $email . '" AND `password`="' . MD5($password) . '"';
 
+            /*
+            $sql = 'SELECT * FROM `client` WHERE `email`=?';
+            $stmt = PdoDb::getInstance()->prepare($sql);
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $user = $result->fetch_assoc();
+    
+            if ($user && password_verify($password, $user['password'])) {
+                $_SESSION['user']['userid'] = $user['uid_client'];
+                $_SESSION['user']['nom'] = $user['nom'];
+                $_SESSION['user']['prenom'] = $user['prenom'];
+                $_SESSION['user']['tel'] = $user['tel'];
+                $_SESSION['user']['email'] = $user['email'];
+                $connected = true;
+                */
+
             // On exécute la requête grace à la class PdoDb.
             $login = PdoDb::getInstance()->requete($sql, 'fetch');
 

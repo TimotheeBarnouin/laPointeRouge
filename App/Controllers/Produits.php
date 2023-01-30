@@ -22,6 +22,7 @@ class Produits extends Controller
     {
         // Requete de type SELECT * sur la table produit_standard.
         $sql = 'SELECT * FROM `produit_standard` ORDER BY RAND() LIMIT 8';
+        // Requete de type SELECT * sur la table produit_sur_mesure.
         $sql1 = 'SELECT * FROM `produit_sur_mesure` ORDER BY RAND() LIMIT 3';
         // Exécution de la requête
         $Rand1 = PdoDb::getInstance()->requete($sql);

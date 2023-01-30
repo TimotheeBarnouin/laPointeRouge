@@ -25,7 +25,6 @@ switch ($uriSegments[1]) {
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/" class="nav-link px-2<?= $activeHome ?>">Accueil</a></li>
                 <li><a href="/artisan" class="nav-link px-2<?= $activeHome ?>">Notre artisan</a></li>
                 <li><a href="/standard" class="nav-link px-2<?= $activeHome ?>">Nos réalisations</a></li>
                 <li><a href="/mesure" class="nav-link px-2<?= $activeHome ?>">Vos projets personnalisés</a></li>
