@@ -34,7 +34,7 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <img src="Imgs/forge.jpg" class="card-img-top">
+                <img src="Imgs/forge.jpg" alt="forge" class="card-img-top">
             </div>
         </div>
         <div class="col-md-4">

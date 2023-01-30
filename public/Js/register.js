@@ -26,8 +26,8 @@ window.onload = () => {
         let formError = [];
 
         // On stockera dans ces variables certaines informations de l'utilisateur
-        // pour une utilisation ultérieure.
-        let password, nom, prenom;
+        // pour une utilisation ultérieure éventuelle.
+        let password, nom, prenom, tel;
 
         // On valide le formulaire
         // On travaille directement avec une boucle for of
@@ -56,7 +56,7 @@ window.onload = () => {
                     break;
                 case 'tel':
                     tel = field[1];
-                    if (!field[1].trim().length) {
+                    if (!tel.trim().length || !ValideTel(tel)) {
                         formError.push('tel');
                     }
                     break;

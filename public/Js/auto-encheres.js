@@ -11,6 +11,11 @@ let ValideEmail = (email) => {
     return !!email.match(validRegex);
 }
 
+let ValideTel = (tel) => {
+    const validRegex = /^((?:\+\d{2}[-.\s]?(?:\(0\)|0)*?[-.\s]?|00[-.\s]?\d{2}[-.\s]?(?:\(0\)|0)*?[-.\s]?|0)\d?[-.\s]?(?:\d{2}[-.\s]?){3,4})(?:$|\D)$/;
+    return !!tel.match(validRegex);
+}
+
 /************************************************************/
 /*** Fonction qui valide et change l'apparence des champs ***/
 /************************************************************/
@@ -31,6 +36,19 @@ let setApparence = (field) => {
     if (field.hasAttribute('type') && field.getAttribute('type') === 'email') {
         // S'il s'agit d'une adresse email valide.
         if (field.value.trim().length && ValideEmail(field.value)) {
+            field.classList.remove('is-invalid');
+            field.classList.add('is-valid');
+            // Sinon l'adresse email n'est pas valide
+        } else {
+            field.classList.remove('is-valid');
+            field.classList.add('is-invalid');
+        }
+    }
+
+    // Champs tel, on cible seulement les champs qui ont l'attribut type="tel" positionné.
+    if (field.hasAttribute('type') && field.getAttribute('type') === 'tel') {
+        // S'il s'agit d'une adresse email valide.
+        if (field.value.trim().length && ValideTel(field.value)) {
             field.classList.remove('is-invalid');
             field.classList.add('is-valid');
             // Sinon l'adresse email n'est pas valide
