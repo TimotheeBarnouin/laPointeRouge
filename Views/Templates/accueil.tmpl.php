@@ -54,7 +54,7 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
     <div class="row">
         <?php foreach ($data2 as $rand2) {
         ?>
-            <div class="col-md-4"><!-- liste verticale produit standard image + nom + tarif -->
+            <div class="col-md-4"><!-- liste produit sur mesure image + nom-->
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand2['nom']; ?>" data-src="/Imgs/<?= $rand2['photo']; ?>" data-caption="<strong><?= $rand2['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand2['photo']; ?>" class="card-img-top" alt="<?= $rand2['nom']; ?>">
@@ -78,7 +78,7 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
     <div class="row">
         <?php foreach ($data as $rand1) {
         ?>
-            <div class="col-md-3 py-3"><!-- liste verticale produit standard image + nom + tarif -->
+            <div class="col-md-3 py-3"><!-- liste produit standard image + nom -->
                 <div class="card bg-secondary">
                     <a class="link" data-fancybox="<?= $rand1['nom']; ?>" data-src="/Imgs/<?= $rand1['photo']; ?>" data-caption="<strong><?= $rand1['nom']; ?></strong>">
                         <img src="/Imgs/<?= $rand1['photo']; ?>" class="card-img-top" alt="<?= $rand1['nom']; ?>">
@@ -95,3 +95,4 @@ use LISENDER\LAPointeRouge\Utils\Php\Outils;
         }
         ?>
     </div>
+</div>

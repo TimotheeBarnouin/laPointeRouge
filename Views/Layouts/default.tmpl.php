@@ -14,7 +14,6 @@ $uriSegments = Outils::getUriSegments();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@100;300;500&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/Css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="/Css/card.css">-->
     <link rel="stylesheet" href="/Css/fancybox.min.css">
     <link rel="stylesheet" href="/Css/auto-encheres.css">
     <?php

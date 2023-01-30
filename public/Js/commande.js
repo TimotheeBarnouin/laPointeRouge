@@ -55,8 +55,8 @@ window.onload = () => {
                     }
                     break;
                 case 'tel':
-                    prenom = field[1];
-                    if (!field[1].trim().length) {
+                    tel = field[1];
+                    if (!tel.trim().length || !ValideTel(tel)) {
                         formError.push('tel');
                     }
                     break;

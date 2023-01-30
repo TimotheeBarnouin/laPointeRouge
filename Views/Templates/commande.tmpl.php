@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group has-validation mb-3">
                             <label for="tel" class="form-label">Téléphone :</label>
-                            <input type="tel" class="form-control" name="tel" id="tel" required>
+                            <input type="tel" class="form-control" name="tel" maxlength="10" id="tel" required>
                             <div class="invalid-feedback">Veuillez saisir un numéro !</div>
                         </div>
                         <div class="form-group has-validation mb-3">
